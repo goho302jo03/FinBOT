@@ -1,0 +1,27 @@
+html{
+  height: 3000px; 
+  width: 1680px;
+}
+
+body{
+  margin: 0;
+  padding: 0;
+}
+
+  .content{
+   margin: 0;
+   padding: 0;
+  }
+  
+  .top{
+    position: absolute;
+    height: 10vh;
+    width: 100vw;
+    background-color: #3399ff;
+
+  }
+
+  .top h1{
+    font-size: 20px;
+    font-color: #ffffff;
+  }
