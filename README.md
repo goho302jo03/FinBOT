@@ -1,4 +1,3 @@
 # FinBOT
-It's a uidd project.
-Plusline tries to push.
-Poker add v2.
+It's a uidd project
+YanjenChen git test v1
