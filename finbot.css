@@ -1,11 +1,12 @@
 html{
-  height: 3000px; 
+  height: 2000px; 
   width: 1680px;
 }
 
 body{
   margin: 0;
   padding: 0;
+  overflow: hidden;
 }
 
   .content{
@@ -17,11 +18,93 @@ body{
     position: absolute;
     height: 10vh;
     width: 100vw;
-    background-color: #3399ff;
-
+    background-color: #0086ea;
   }
 
   .top h1{
-    font-size: 20px;
-    font-color: #ffffff;
+    position: absolute;
+    left: 10px;
+    font-size: 20hv;
+    color: #ffffff;
   }
+
+  .top img{
+    position: absolute;
+    top: 2vh;
+    right: 4vw;
+    height: 5vh;
+    width: 5vh;
+  }
+
+  .middle{
+    padding: 5vh;
+    position: absolute;
+    top: 10vh;
+    height: 80vh;
+    width: 95vw;
+    background-color: #f2f2f2;
+  }
+
+  #frecord{
+    padding: 1vh;
+    position: absolute;
+    left: 15vw; 
+    background-color: #ffcc00;
+    border: 1vh solid #ffcc00;
+    border-radius: 1vh;
+  }
+
+  #urecord{
+    position: absolute;
+    right: 15vw;
+  }
+
+  #finpic{
+    position: absolute;
+    left: 6vw;
+    height: 7vh;
+    width: 7vh;
+    border-radius: 100%;
+  }
+  
+  .bottom{
+    position: absolute;
+    top: 90vh;
+    height: 10vh;
+    width: 100vw;
+    background-color: #ffffff;
+  }
+
+
+  #comment{
+    position: absolute;
+    top: 2vh;
+    left: 3vw;
+    height: 6vh;
+    width: 80vw;
+  }
+
+
+  form button{
+    position: absolute;
+    top: 2vh;
+    right: 5vw;
+    height: 8vh;
+    width: 8vh;
+    background-color: #ffffff;
+    border: 2px solid #ffffff;
+  }
+
+  form img{
+    height: 8vh;
+    width: 8vh;
+  }
+
+
+
+
+
+
+
+
+
