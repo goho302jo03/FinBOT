@@ -75,6 +75,11 @@ body{
     background-color: #ffffff;
   }
 
+  .funul.li{
+    display: none;
+    border: solid;
+    background-color: gray;
+  }
 
   #comment{
     position: absolute;
