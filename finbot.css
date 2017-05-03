@@ -75,8 +75,21 @@ body{
     background-color: #ffffff;
   }
 
-  .funul.li{
+  #fun{
+    position: absolute;
+    top: 2vh;
+    left: 3vw;
+    height: 6vh;
+    width: 6vh;
+  }
+
+  #funul{
     display: none;
+    position: absolute;
+    top:-20vh;
+    left:3vw;
+    height:20vh;
+    width:13vh;
     border: solid;
     background-color: gray;
   }
@@ -84,13 +97,13 @@ body{
   #comment{
     position: absolute;
     top: 2vh;
-    left: 3vw;
+    left: 10vw;
     height: 6vh;
-    width: 80vw;
+    width: 70vw;
   }
 
 
-  form button{
+   form button{
     position: absolute;
     top: 2vh;
     right: 5vw;
@@ -104,9 +117,6 @@ body{
     height: 8vh;
     width: 8vh;
   }
-
-
-
 
 
 
