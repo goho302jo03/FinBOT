@@ -23,7 +23,7 @@ body{
 
   .top h1{
     position: absolute;
-    left: 10px;
+    left: 5vw;
     font-size: 20hv;
     color: #ffffff;
   }
@@ -75,8 +75,21 @@ body{
     background-color: #ffffff;
   }
 
-  .funul.li{
+  #fun{
+    position: absolute;
+    top: 2vh;
+    left: 3vw;
+    height: 6vh;
+    width: 6vh;
+  }
+
+  #funul{
     display: none;
+    position: absolute;
+    top:-20vh;
+    left:3vw;
+    height:20vh;
+    width:13vh;
     border: solid;
     background-color: gray;
   }
@@ -84,29 +97,27 @@ body{
   #comment{
     position: absolute;
     top: 2vh;
-    left: 3vw;
+    left: 13vw;
     height: 6vh;
-    width: 80vw;
+    width: 70vw;
+    font-size: 4vh;
   }
 
 
-  form button{
+  #send{
     position: absolute;
     top: 2vh;
     right: 5vw;
-    height: 8vh;
-    width: 8vh;
+    height: 6vh;
+    width: 6vh;
     background-color: #ffffff;
     border: 2px solid #ffffff;
   }
 
   form img{
-    height: 8vh;
-    width: 8vh;
+    height: 5.5vh;
+    width: 5.5vh;
   }
-
-
-
 
 
 
