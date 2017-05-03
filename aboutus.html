@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>finBOT</title>
+  <link href="finstyle.css" type="text/css" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-3.1.1.min.js"
+            integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
+            crossorigin="anonymous"></script>
+    <script src="script.js"></script>
+</head>
+<body>
+
+<!--
+<script>
+  
+  function statusChangeCallback(response) {
+    console.log('statusChangeCallback');
+    console.log(response);
+    if (response.status === 'connected') {
+      // Logged into your app and Facebook.
+      testAPI();
+    } else {
+      // The person is not logged into your app or we are unable to tell.
+      document.getElementById('status').innerHTML = 'Please log ' + 'into this app.';
+    }
+  }
+
+  function checkLoginState() {
+    FB.getLoginStatus(function(response) {
+    statusChangeCallback(response);
+    });
+  }
+
+  window.fbAsyncInit = function() {
+    FB.init({
+      appId      : '670837969786390',
+      xfbml      : true,
+      version    : 'v2.8'
+    });
+    FB.getLoginStatus(function(response) {
+      statusChangeCallback(response);
+    });
+  };
+      
+  (function(d, s, id){
+    var js, fjs = d.getElementsByTagName(s)[0];
+    if (d.getElementById(id)) {return;}
+    js = d.createElement(s); js.id = id;
+    js.src = "//connect.facebook.net/en_US/sdk.js";
+    fjs.parentNode.insertBefore(js, fjs);
+  }(document, 'script', 'facebook-jssdk'));
+
+  function testAPI() {
+    console.log('Welcome!  Fetching your information.... ');
+    FB.api('/me', function(response) {
+      console.log('Successful login for: ' + response.name);
+      document.getElementById('status').innerHTML =
+      'Thanks for logging in, ' + response.name + '!';
+    });
+  }
+
+</script>
+--!>
+
+<div class="content">
+
+  <div class="top">
+    <h1>FIN BOT</h1>
+    <h3>About Us</h3>
+  </div>
+
+  <div class="list">
+    <div class="member">
+      <a><img id="photo1" src="./images/member1.jpg"></a>
+      <p>工設106</p>
+      <p>莊富涵</p>
+    </div>
+    <div class="member">
+      <a><img id="photo2" src="./images/member2.jpg"></a>
+      <p>電機106</p>
+      <p>黃建勛</p>
+    </div>
+    <div class="member">
+      <a><img id="photo3" src="./images/member3.jpg"></a>
+      <p>材料106</p>
+      <p>倪中盛</p>
+    </div>
+    <div class="member">
+      <a><img id="photo4" src="./images/member4.jpg"></a>
+      <p>電機108</p>
+      <p>陳彥臻</p>
+    </div>
+    <div class="member">
+      <a><img id="photo5" src="./images/member5.jpg"></a>
+      <p>電機108</p>
+      <p>陳佳憲</p>
+    </div>
+    <div style="clear:both;"></div>
+  </div>
+
+  <div class="bottom">
+    <center>
+    <form name="signin" method="post" action="signin">
+      姓名：<input type="text" name="name" size="10"><br>
+      留言內容：<br>
+      <textarea name="comment" rows="3" cols="45"></textarea><br> 
+      <input type="submit" value="確定"> <input type="reset" value="清除">
+    </form>
+    </center>
+    <!--
+    <form action="login">
+      <input name="nick" placehoder="nick" type="text" /><br />
+      <input type="radio" name="sex" value="boy" checked>男
+      <input type="radio" name="sex" value="girl">女<br>
+      <button>Submit</button>
+    </form>
+    --!>
+    <!-- <fb:login-button scope="public_profile,email" onlogin="checkLoginState();"></fb:login-button> --!>
+  </div>
+
+  <!-- <div id="status"></div> --!>
+
+  <div class="page2">
+  
+  </div>
+  <div id="info1">
+    <h2>成員介紹</h2>
+    <p>姓名：莊富涵</p>
+    <p>系級：工設106</p>
+    <p>負責：</p>
+    <p>興趣：</p>
+  </div>
+  <div id="info2">
+    <h2>成員介紹</h2>
+    <p>姓名：黃建勛</p>
+    <p>系級：電機106</p>
+    <p>負責：</p>
+    <p>興趣：</p>
+  </div>
+  <div id="info3">
+    <h2>成員介紹</h2>
+    <p>姓名：倪中盛</p>
+    <p>系級：材料106</p>
+    <p>負責：</p>
+    <p>興趣：</p>
+  </div>
+  <div id="info4">
+    <h2>成員介紹</h2>
+    <p>姓名：陳彥臻</p>
+    <p>系級：電機108</p>
+    <p>負責：</p>
+    <p>興趣：</p>
+  </div>
+  <div id="info5">
+    <h2>成員介紹</h2>
+    <p>姓名：陳佳憲</p>
+    <p>系級：電機108</p>
+    <p>負責：</p>
+    <p>興趣：</p>
+  </div>
+  <a class="btn">Back</a>
+</div>
+</body>
+</html>
