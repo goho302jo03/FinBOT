@@ -2,6 +2,8 @@
 <html>
 <head>
   <link rel="stylesheet" href="finbot.css">
+  <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+  <script src="finbot.js" ></script>
 </head>
 
 <body>
@@ -12,7 +14,7 @@
       <img id="funpic" src="./images/chatroom/right button.png">
   </div>
   
-  <div class="middle">
+  <div class="dialogbox">
     <div id="finbot">
       <a><img id="finpic" src="./images/chatroom/finpic.png"></a>
       <div id="frecord">你好，我是FIN寶，請問你需要什麼服務呢？</div>
@@ -25,10 +27,17 @@
   </div>
 
   <div class="bottom">
-
+    
+    <img id="fun" src="./images/chatroom/fun.png">
+    
+    <ul id="funul">
+      <li>股市查詢</li>
+      <li>匯率查詢</li>
+    </ul> 
+    
     <form name="typing" method="post">
       <input type="text" name="comment" id="comment">
-      <button type="submit"><img src="./images/chatroom/sendpic.png"></button>
+      <button type="submit" id="send"><img src="./images/chatroom/sendpic.png"></button>
     </form>
     
   </div>
