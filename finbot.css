@@ -16,6 +16,7 @@ body{
   
   .top{
     position: absolute;
+    z-index: 10px;
     height: 10vh;
     width: 100vw;
     background-color: #0086ea;
@@ -25,6 +26,10 @@ body{
     position: absolute;
     left: 5vw;
     font-size: 20hv;
+  }
+
+  .top h1 a{
+    text-decoration: none;
     color: #ffffff;
   }
 
@@ -69,6 +74,7 @@ body{
   
   .bottom{
     position: absolute;
+    z-index:10px;
     top: 90vh;
     height: 10vh;
     width: 100vw;
@@ -83,16 +89,23 @@ body{
     width: 6vh;
   }
 
+  #fun:hover{
+    
+  }
+
   #funul{
     display: none;
     position: absolute;
-    top:-20vh;
+    top:-12vh;
     left:3vw;
-    height:20vh;
-    width:13vh;
+    height:10vh;
+    width:10vh;
     border: solid;
-    background-color: gray;
-  }
+    color: white;
+    background-color: black;
+    border-radius: 10%;
+    line-height: 4vh;
+  } 
 
   #comment{
     position: absolute;

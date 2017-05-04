@@ -1,9 +1,8 @@
 
 
 $(document).ready(function(){
-  var comment = null;
 
-  function say(){
+/*  function say(){
     append(document.getElementById('comment').value);
   }
 
@@ -12,15 +11,25 @@ $(document).ready(function(){
     dialogbox.innerHTML+=line+"<br/>\n";
     dialogbox.scrollTop = dialogbox.scrollHeight;
   }
-
+*/
   $('#fun').on('click',function(){
     $('#funul').toggle('slow');
   }); 
 
-  $('#send').on('click',function(){
-    comment = document.getElementById('comment')
-    document.write(comment+'<br/>');
-  });
+  $('button[type=submit]').on('click',function(){
+    $('#funul').toogle('slow');
+    jQuery.ajax({
+        data:{
+          id:$('input[name=comment]').val()
+        },
+        url:'do',
+        success:function(data){
+          $('.dialogbox').text(data);
+        }
+      });
+    var comment = document.getElementById('comment');
+    $('#urecord').append(comment);
+  }); 
 });
 
 
