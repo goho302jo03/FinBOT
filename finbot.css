@@ -141,19 +141,29 @@ body{
     
   }
 
-  #funul{
-    display: none;
-    position: absolute;
-    top:-12vh;
-    left:3vw;
-    height:10vh;
-    width:10vh;
-    border: solid;
-    color: white;
-    background-color: black;
-    border-radius: 10%;
-    line-height: 4vh;
-  } 
+#funul {
+  display: none;
+  position: absolute;
+  margin: 0;
+  padding: 0.8vh 0;
+  bottom: 10vh;
+  left: 2vw; 
+  height: auto;
+  width: 25vw;
+  border: solid;
+  color: white;
+  background-color: #00AAFF;
+  border-radius: 2vw;
+}
+
+#funul li {
+  margin: 0 auto;
+  padding: 0.8vh 0;
+  font-size: 2.5vh;
+  height: 2.5vh;
+  text-align: center;
+  list-style-type:none;
+}
 
 #comment{
   margin: 2.5vh 0;

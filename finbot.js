@@ -1,6 +1,10 @@
-$(document).ready(function(){
 
-  var qaList = [
+$(document).ready(function(){
+  
+  var funcNum = 0;
+  var text;
+  //聊天機器人關鍵字彙
+  const qaList = [
   { Q:"謝謝", A:"不客氣!"},
   { Q:"對不起 | 抱歉 | 不好意思", A:"別說抱歉 !|別客氣，儘管說 !"},
   { Q:"可否 | 可不可以", A:"你確定想*?"},
@@ -35,24 +39,27 @@ $(document).ready(function(){
   { Q:"", A:"我了解|我能理解|還有問題嗎 ?|請繼續說下去|可以說的更詳細一點嗎?|這樣喔! 我知道!|然後呢? 發生甚麼事?|再來呢? 可以多說一些嗎|接下來呢? |可以多告訴我一些嗎?|多談談有關你的事，好嗎?|想多聊一聊嗎|可否多告訴我一些呢?"}
   ];
   
+  //宣告random的function
   function random(n) { // 從 0 到 n-1 中選一個亂數
     return Math.floor(Math.random()*n);
   }
 
-  function answer() { // 回答問題
+  //宣告answer的function，負責做出回應
+  function answer(string) {
     setTimeout(function () { 
       $('.dialogbox').append(
         "<div class=\"finbot\">"+
           "<a><img class=\"finpic\" src=\"./images/chatroom/finpic.png\"></a>"+
-          "<div class=\"frecord\">" + getAnswer() + "</div>"+
+          "<div class=\"frecord\">" + string + "</div>"+
         "</div>");
 
       $('.dialogbox').animate({ 
         scrollTop: $('.dialogbox').height()
         }, 1000);
-    }, 1000+random(2000));
+    }, 500+random(500));
   }
 
+  //宣告getAnswer的function，判斷輸入，找出適合的回應
   function getAnswer() {
     var say = $('#comment').val(); // 取得使用者輸入的問句。
     for (var i in qaList) { // 對於每一個 QA 
@@ -77,6 +84,7 @@ $(document).ready(function(){
     return "然後呢？"; // 如果發生任何錯誤，就回答「然後呢？」來混過去。
   }   
 
+  //宣告append的function，使用者輸入字串時需要呼叫
   function append() {
     if($('#comment').val()=="");
     else {
@@ -93,14 +101,16 @@ $(document).ready(function(){
 
       $('#comment').val("");
     
-      answer();
+      answer(getAnswer());
     }
   }
   
+  //按下送出時需呼叫append
   $('#send').click(function() {
     append();
   });
 
+  //按下enter鍵時需呼叫append
   $('#comment').keypress(function (e) {
     var key = e.which;
     if(key == 13) {
@@ -108,10 +118,25 @@ $(document).ready(function(){
     }
   });
 
- /*
-  $('#fun').on('click',function(){
+  //按下左下功能鍵後需要toggle
+  $('#fun').click(function(){
     $('#funul').toggle('slow');
   }); 
-*/
+
+  $('#search1').click(function(){
+    $('#funul').toggle('slow');
+    funcNum = 1;
+
+  }); 
+  
+  $('#search2').click(function(){
+    $('#funul').toggle('slow');
+    funcNum = 2;
+    text = "請輸入想要查詢的幣別<br>欲取消查詢請輸入888";
+    answer(text);
+  });
+  
+
+
 });
 
