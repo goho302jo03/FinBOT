@@ -13,7 +13,8 @@ body{
   margin: 0;
   padding: 0;
 }
-  
+
+
 .top{
   z-index: 9999;
   position: fixed;
@@ -29,6 +30,11 @@ body{
   font-size: 6vh;
   color: #ffffff;
 }
+
+.top h2 a{
+    text-decoration: none;
+    color: #ffffff;
+  }
 
 .top img{
   position: absolute;
@@ -112,6 +118,7 @@ body{
   float: right; 
 }
   
+
 .bottom{
   z-index: 9999;
   position: fixed;
@@ -121,24 +128,32 @@ body{
   background-color: #ffffff;
 }
 
+
 #fun{
   margin: 0;
   padding: 2.75vh 2vw 2.75vh 2vw;
   height: 4.5vh;
-  width: 8vw;
+  width: 4.5vh;
   float: left;
 }
+
+  #fun:hover{
+    
+  }
 
   #funul{
     display: none;
     position: absolute;
-    top:-20vh;
+    top:-12vh;
     left:3vw;
-    height:20vh;
-    width:13vh;
+    height:10vh;
+    width:10vh;
     border: solid;
-    background-color: gray;
-  }
+    color: white;
+    background-color: black;
+    border-radius: 10%;
+    line-height: 4vh;
+  } 
 
 #comment{
   margin: 2.5vh 0;
@@ -156,7 +171,7 @@ body{
   margin: 0;
   padding: 2vh 0 2.25vh 1.5vw;
   height: 10vh;
-  width: 15vw;
+  width: 10vh;
   background-color: #ffffff;
   border: 0px none #ffffff;
   float: left;
@@ -168,7 +183,7 @@ body{
 
 #send img{
   height: 5.5vh;
-  width: 10vw;
+  width: 5.5vh;
   float: left;
   border-width: 0;
 }
