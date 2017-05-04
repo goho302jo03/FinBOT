@@ -1,26 +1,30 @@
-
-
 $(document).ready(function(){
-  var comment = null;
+  
+  console.log("111");
+  console.log($('#comment').val());
 
-  function say(){
-    append(document.getElementById('comment').value);
-  }
-
-  function append(line){
-    var dialogbox = document.getElementById('dialogbox');
-    dialogbox.innerHTML+=line+"<br/>\n";
-    dialogbox.scrollTop = dialogbox.scrollHeight;
-  }
-
+ /*
   $('#fun').on('click',function(){
     $('#funul').toggle('slow');
   }); 
+*/
+  $('#send').on('click',function() {
+    
+    if($('#comment').val()=="");
+    else {
+      $('.dialogbox').append(
+        "<div class=\"user\">"+
+          "<a><img class=\"urpic\" src=\"./images/chatroom/urpic.png\"></a>"+
+          "<div class=\"urecord\">" + $('#comment').val() + "</div>"+
+          "<div style=\"clear:both\"></div>"+
+        "</div>");
 
-  $('#send').on('click',function(){
-    comment = document.getElementById('comment')
-    document.write(comment+'<br/>');
+      $('.dialogbox').animate({ 
+        scrollTop: $('.dialogbox').height()
+        }, 1000);
+
+      $('#comment').val("");
+    }
   });
 });
-
 

@@ -6,6 +6,7 @@ body{
   margin: 0;
   padding: 0;
   overflow: hidden;
+  background-color: #f2f2f2;
 }
 
 .content{
@@ -47,16 +48,17 @@ body{
 }
 
 .dialogbox {
-  min-height: 80vh;
+  height: 80vh;
   width: 100vw;
   background-color: #f2f2f2;
+  overflow: auto;
 }
 
 .finbot {
   margin: 0;
   padding:  1.5vh 0 1.5vh 2vw;
   max-width: 80vw;
-  height: 100%;
+  height: auto;
   overflow: hidden; 
 }
 
@@ -86,18 +88,18 @@ body{
   max-width: 80vw;
   min-height: 10vw;
   width: auto;
-  height: 100%;
+  height: auto;
   overflow: hidden;
 }
 .urpic {
-  position: absolute;
+  position: relative;
   right: 2vw;
-  margin: 0;
+  margin: 0 0 -10vw 0;
   padding: 0;
   height: 10vw;
   width: 10vw;
   border-radius: 100%;
-  float: left;
+  float: right;
 }
 .urecord {
   margin: 0 13.5vw 0 0;
@@ -156,14 +158,19 @@ body{
   height: 10vh;
   width: 15vw;
   background-color: #ffffff;
-  border: 2px solid #ffffff;
+  border: 0px none #ffffff;
   float: left;
 }
 
-form img{
+#send button {
+  border: 0;
+}
+
+#send img{
   height: 5.5vh;
   width: 10vw;
   float: left;
+  border-width: 0;
 }
 
 
