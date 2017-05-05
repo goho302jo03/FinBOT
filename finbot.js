@@ -40,11 +40,13 @@ $(document).ready(function(){
   }
 
   function answer() { // 回答問題
+    var getans = getAnswer()
+    $('#comment').val("");
     setTimeout(function () { 
       $('.dialogbox').append(
         "<div class=\"finbot\">"+
           "<a><img class=\"finpic\" src=\"./images/chatroom/finpic.png\"></a>"+
-          "<div class=\"frecord\">" + getAnswer() + "</div>"+
+          "<div class=\"frecord\">" + getans + "</div>"+
         "</div>");
 
       $('.dialogbox').animate({ 
@@ -62,7 +64,7 @@ $(document).ready(function(){
         var aList = qa.A.split("|"); // 取出回答 A 部分，分割成一個一個的回答字串 q
         for (var qi in qList) { // 對於每個問題字串 q
           var q = qList[qi];
-          if (q=="") // 如果是最後一個「空字串」的話，那就不用比對，直接任選一個回答。
+          if (q =="") // 如果是最後一個「空字串」的話，那就不用比對，直接任選一個回答。
             return aList[random(aList.length)]; // 那就從答案中任選一個回答
           var r = new RegExp("(.*)"+q+"([^?.;]*)", "gi"); // 建立正規表達式 (.*) q ([^?.;]*)
           if (say.match(r)) { // 比對成功的話
@@ -90,12 +92,11 @@ $(document).ready(function(){
       $('.dialogbox').animate({ 
         scrollTop: $('.dialogbox').height()
         }, 1000);
-
-      $('#comment').val("");
-    
+      
       answer();
     }
   }
+
   
   $('#send').click(function() {
     append();
