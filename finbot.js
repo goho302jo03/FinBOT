@@ -106,7 +106,7 @@ $(document).ready(function(){
   function funcMode() {
     if(funcNum==0){ 
       botAppend(getAnswer());
-      
+     
     }
     else if(funcNum==1){
 
@@ -125,8 +125,8 @@ $(document).ready(function(){
      
       text = "已確認金額與轉帳對象<br>轉帳處理中";
       botAppend(text);
-    }
-    $('#comment').val("");*/
+    }*/
+    $('#comment').val("");
   }
 
   
