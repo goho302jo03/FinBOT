@@ -1,6 +1,7 @@
 body {
   margin: 0;
   padding: 0;
+  font-family: Microsoft JhengHei;
 }
 
 .content {
@@ -14,36 +15,63 @@ body {
   background-color: #F2F2F2;
   margin: 0;
   padding: 5vh 5vw 5vh 8vw;
-  height: 15vh;
+  height: 12vh;
   width: 87vw;
+  z-index: 10px;
 }
 
 .top h1 {
   margin: 0;
   padding: 0;
-  font-size: 4vw;
-  color: #2A8DD8
+  font-size: 10vw;
+  color: #2A8DD8;
+  z-index: 10px;
 }
 
 .top h3 {
   margin: 0;
   padding: 0;
-  font-size: 2vw;
+  font-size: 6vw;
+  z-index: 10px;
+}
+
+#btcr{
+  position: absolute;
+  top: 85vh;
+  right: 36vw;
+  z-index: 10px;
+  background: #0086EA;
+  background-image: -webkit-linear-gradient(top, #0086EA, #003A66);
+  background-image: -moz-linear-gradient(top, #0086EA, #003A66);
+  background-image: -ms-linear-gradient(top, #0086EA, #003A66);
+  background-image: -o-linear-gradient(top, #0086EA, #003A66);
+  background-image: linear-gradient(to bottom, #0086EA, #003A66);
+  -webkit-border-radius: 28;
+  -moz-border-radius: 28;
+  border-radius: 28px;
+  font-size: 16px;
+  padding: 7px 24px 7px 24px;
+  border: solid #f0f0f0 4px;
+}
+
+#btcr a{
+ color: #ffffff;
+ text-decoration: none;
 }
 
 .list {
   background-color: #F4C70B;
   margin: 0;
   padding: 5vh 6vw;
-  height: 45vh;
+  height: 50vh;
   width: 88vw;
   text-align: center;
 }
 
 .member {
   margin: 0 1.8vw;
-  height: 40vh;
-  width: 14vw;
+  height: 25vh;
+  width: 25vw;
   float: left;
   text-align: center;
 }
@@ -51,9 +79,9 @@ body {
 .member img {
   z-index: 10;
   position: relative;
-  margin: 2vh 0 4vh 0;
-  height: 11vw;
-  width: 11vw;
+  margin: 2vh 0 2vh 0;
+  height: 20vw;
+  width: 20vw;
   border-style: solid;
   border-color: #FFF;
   border-width: 0.3vw;
@@ -63,7 +91,7 @@ body {
 .member p {
   margin: 0;
   padding: 0;
-  font-size: 1.5vw;
+  font-size: 4vw;
   font-weight: bold;
 }
 
@@ -87,7 +115,7 @@ body {
   height: 0;
   width: 70vw;
   overflow-x: hidden;
-  z-index: 0;
+  z-index: -5px;
 }
 
 #info1,#info2,#info3,#info4,#info5 {
