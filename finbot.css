@@ -1,107 +1,198 @@
 html{
-  height: 2000px; 
-  width: 1680px;
+  width: 100vw;
 }
 
 body{
   margin: 0;
   padding: 0;
   overflow: hidden;
+  background-color: #f2f2f2;
 }
 
-  .content{
-   margin: 0;
-   padding: 0;
-  }
-  
-  .top{
-    position: absolute;
-    height: 10vh;
-    width: 100vw;
-    background-color: #0086ea;
-  }
+.content{
+  margin: 0;
+  padding: 0;
+}
 
-  .top h1{
-    position: absolute;
-    left: 10px;
-    font-size: 20hv;
+
+.top{
+  z-index: 9999;
+  position: fixed;
+  height: 10vh;
+  width: 100vw;
+  background-color: #0086ea;
+}
+
+.top h2{
+  margin: 0;
+  padding: 2vh 0 2vh 5vw;
+  height: 6vh;
+  font-size: 6vh;
+  color: #ffffff;
+}
+
+.top h2 a{
+    text-decoration: none;
     color: #ffffff;
   }
 
-  .top img{
-    position: absolute;
-    top: 2vh;
-    right: 4vw;
-    height: 5vh;
-    width: 5vh;
-  }
+.top img{
+  position: absolute;
+  margin: 0;
+  top: 0vh;
+  padding: 2vh 0;
+  right: 4vw;
+  height: 6vh;
+  width: 5vh;
+}
 
-  .middle{
-    padding: 5vh;
-    position: absolute;
-    top: 10vh;
-    height: 80vh;
-    width: 95vw;
-    background-color: #f2f2f2;
-  }
+.space {
+  margin: 0;
+  padding: 0;
+  width: 100vw;
+  height: 10vh;
+}
 
-  #frecord{
-    padding: 1vh;
-    position: absolute;
-    left: 15vw; 
-    background-color: #ffcc00;
-    border: 1vh solid #ffcc00;
-    border-radius: 1vh;
-  }
+.dialogbox {
+  height: 80vh;
+  width: 100vw;
+  background-color: #f2f2f2;
+  overflow: auto;
+}
 
-  #urecord{
-    position: absolute;
-    right: 15vw;
-  }
+.finbot {
+  margin: 0;
+  padding:  1.5vh 0 1.5vh 2vw;
+  max-width: 80vw;
+  height: auto;
+  overflow: hidden; 
+}
 
-  #finpic{
-    position: absolute;
-    left: 6vw;
-    height: 7vh;
-    width: 7vh;
-    border-radius: 100%;
-  }
+.finpic {
+  margin: 0;
+  padding: 0;
+  height: 10vw;
+  width: 10vw;
+  border-radius: 100%;
+  float: left;
+}
+
+.frecord {
+  margin: 0 0 0 1.5vw;
+  max-width: 60vw;
+  height: auto;
+  font-size: 4vw;
+  background-color: #ffcc00;
+  border: 1vh solid #ffcc00;
+  border-radius: 1vh;
+  float: left;
+}
+
+.user {
+  margin: 0 0 0 auto;
+  padding:  1.5vh 0 1.5vh 0;
+  max-width: 80vw;
+  min-height: 10vw;
+  width: auto;
+  height: auto;
+  overflow: hidden;
+}
+.urpic {
+  position: relative;
+  right: 2vw;
+  margin: 0 0 -10vw 0;
+  padding: 0;
+  height: 10vw;
+  width: 10vw;
+  border-radius: 100%;
+  float: right;
+}
+.urecord {
+  margin: 0 13.5vw 0 0;
+  max-width: 60vw;
+  height: auto;
+  font-size: 4vw;
+  background-color: #00BBFF;
+  border: 1vh solid #00BBFF;
+  border-radius: 1vh;
+  float: right; 
+}
   
-  .bottom{
-    position: absolute;
-    top: 90vh;
-    height: 10vh;
-    width: 100vw;
-    background-color: #ffffff;
+
+.bottom{
+  z-index: 9999;
+  position: fixed;
+  bottom: 0; 
+  height: 10vh;
+  width: 100vw;
+  background-color: #ffffff;
+}
+
+
+#fun{
+  margin: 0;
+  padding: 2.75vh 2vw 2.75vh 2vw;
+  height: 4.5vh;
+  width: 4.5vh;
+  float: left;
+}
+
+  #fun:hover{
+    
   }
 
+#funul {
+  display: none;
+  position: absolute;
+  margin: 0;
+  padding: 0.8vh 0;
+  bottom: 10vh;
+  left: 2vw; 
+  height: auto;
+  width: 25vw;
+  border: solid;
+  color: white;
+  background-color: #00AAFF;
+  border-radius: 2vw;
+}
 
-  #comment{
-    position: absolute;
-    top: 2vh;
-    left: 3vw;
-    height: 6vh;
-    width: 80vw;
-  }
+#funul li {
+  margin: 0 auto;
+  padding: 0.8vh 0;
+  font-size: 2.5vh;
+  height: 2.5vh;
+  text-align: center;
+  list-style-type:none;
+}
+
+#comment{
+  margin: 2.5vh 0;
+  padding: 0.65vh 0 0.65vh 2vw;
+  height: 3.5vh;
+  width: 71vw;
+  font-size: 3.5vh;
+  border-style: solid;
+  border-width: 0.1vh 0.2vw 0.1vh 0.2vw;
+  float: left; 
+}
 
 
-  form button{
-    position: absolute;
-    top: 2vh;
-    right: 5vw;
-    height: 8vh;
-    width: 8vh;
-    background-color: #ffffff;
-    border: 2px solid #ffffff;
-  }
+#send{
+  margin: 0;
+  padding: 2vh 0 2vh 1.5vw;
+  height: 10vh;
+  width: 12vw;
+  background-color: #ffffff;
+  border: 2px solid #ffffff;
+  float: left;
+}
 
-  form img{
-    height: 8vh;
-    width: 8vh;
-  }
-
-
-
+#send img{
+  height: 5vh;
+  width: 5vh;
+  float: left;
+  border-width: 0;
+}
 
 
 
