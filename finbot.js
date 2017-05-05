@@ -99,7 +99,7 @@ $(document).ready(function(){
         scrollTop: $('.dialogbox').height()
         }, 1000);
     
-    }
+    
   }
 
   //判斷是哪種模式
@@ -121,7 +121,12 @@ $(document).ready(function(){
 
       }
     }
-    $('#comment').val("");
+    /*else if(funcNum==3){
+     
+      text = "已確認金額與轉帳對象<br>轉帳處理中";
+      botAppend(text);
+    }
+    $('#comment').val("");*/
   }
 
   
@@ -159,7 +164,14 @@ $(document).ready(function(){
     text = "請輸入想要查詢的幣別<br>欲取消查詢請輸入999";
     botAppend(text);
   });
-  
+
+  //按下"戶頭轉帳"後，funcNum會設定為3
+  /*$('#search3').click(function(){
+    $('#funul').toggle('slow');
+    funcNum = 3;
+    text = "請輸入金額與轉帳對象<br>欲取消轉帳請輸入999";
+    botAppend(text);
+  });*/
 
 
 });
