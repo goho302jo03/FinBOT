@@ -45,7 +45,7 @@ $(document).ready(function(){
   }
 
   //宣告answer的function，負責做出回應
-  function answer(string) {
+  function botAppend(string) {
     setTimeout(function () { 
       $('.dialogbox').append(
         "<div class=\"finbot\">"+
@@ -85,7 +85,7 @@ $(document).ready(function(){
   }   
 
   //宣告append的function，使用者輸入字串時需要呼叫
-  function append() {
+  function userAppend() {
     if($('#comment').val()=="");
     else {
       $('.dialogbox').append(
@@ -99,22 +99,44 @@ $(document).ready(function(){
         scrollTop: $('.dialogbox').height()
         }, 1000);
     
-      answer(getAnswer());
-      $('#comment').val("");
     }
+  }
+
+  //判斷是哪種模式
+  function funcMode() {
+    if(funcNum==0){ 
+      botAppend(getAnswer());
+      
+    }
+    else if(funcNum==1){
+
+    }
+    else if(funcNum==2){
+      if($('#comment').val()=="999"){
+        funcNum=0;
+        text = "已經回到聊天模式囉~~";
+        botAppend(text);
+      }
+      else {
+
+      }
+    }
+    $('#comment').val("");
   }
 
   
   //按下送出時需呼叫append
   $('#send').click(function() {
-    append();
+    userAppend();
+    funcMode();
   });
 
   //按下enter鍵時需呼叫append
   $('#comment').keypress(function (e) {
     var key = e.which;
     if(key == 13) {
-      append();
+      userAppend();
+      funcMode();
     }
   });
 
@@ -123,17 +145,19 @@ $(document).ready(function(){
     $('#funul').toggle('slow');
   }); 
 
+  //按下"股市查詢"後，funcNum會設定為1
   $('#search1').click(function(){
     $('#funul').toggle('slow');
     funcNum = 1;
 
   }); 
   
+  //按下"匯率查詢"後，funcNum會設定為2
   $('#search2').click(function(){
     $('#funul').toggle('slow');
     funcNum = 2;
-    text = "請輸入想要查詢的幣別<br>欲取消查詢請輸入888";
-    answer(text);
+    text = "請輸入想要查詢的幣別<br>欲取消查詢請輸入999";
+    botAppend(text);
   });
   
 
