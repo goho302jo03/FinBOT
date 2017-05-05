@@ -3,8 +3,11 @@ $(document).ready(function(){
   
   var funcNum = 0;
   var text;
+  var instruction = {};
+
   //聊天機器人關鍵字彙
   const qaList = [
+  { Q:"幹你娘", A:"我才幹你娘"},
   { Q:"謝謝", A:"不客氣!"},
   { Q:"對不起 | 抱歉 | 不好意思", A:"別說抱歉 !|別客氣，儘管說 !"},
   { Q:"可否 | 可不可以", A:"你確定想*?"},
@@ -54,7 +57,7 @@ $(document).ready(function(){
         "</div>");
 
       $('.dialogbox').animate({ 
-        scrollTop: $('.dialogbox').height()
+        scrollTop: 99999999
         }, 1000);
     }, 500+random(500));
   }
@@ -96,7 +99,7 @@ $(document).ready(function(){
         "</div>");
 
       $('.dialogbox').animate({ 
-        scrollTop: $('.dialogbox').height()
+        scrollTop: 9999999999999999
         }, 1000);
     
     }
@@ -118,7 +121,21 @@ $(document).ready(function(){
         botAppend(text);
       }
       else {
+        instruction.currency = $('#comment').val();
+        $.post("./Exchange.js",instruction,function(data){
+          task(data);   
+        });
+        var task = function(msg){                                                 
+          $('.dialogbox').append(
+            "<div class=\"finbot\">"+
+            "<a><img class=\"finpic\" src=\"./images/chatroom/finpic.png\"></a>"+
+            "<div class=\"frecord\">"+"buyCash: "+msg.buyCash+"<br>buySpot: "+msg.buySpot+"<br>sellCash: "+msg.sellCash+"<br>sellSpot: "+msg.sellSpot+"</div>"+
+            "</div>");
 
+          $('.dialogbox').animate({ 
+            scrollTop: 99999999
+          }, 1000);
+        }
       }
     }
     $('#comment').val("");
