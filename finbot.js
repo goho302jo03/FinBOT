@@ -122,8 +122,15 @@ $(document).ready(function(){
       }
     }
     else if(funcNum==3){
-      text = $('#comment').val()+"已確認金額與轉帳對象<br>轉帳處理中";
-      botAppend(text);
+      if($('#comment').val()=="999"){
+        funcNum=0;
+        text = "已經回到聊天模式囉~~";
+         botAppend(text);
+      }
+      else {
+        text = $('#comment').val()+"已確認金額與轉帳對象<br>轉帳處理中";
+        botAppend(text);
+      }
     }
     $('#comment').val("");
   }
