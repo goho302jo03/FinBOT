@@ -166,7 +166,26 @@ body{
 }
 
 #funpicul {
+  display: none;
+  position: absolute;  
+  margin-top: -1vh;
+  padding: 0.8vh 0;
+  right: 4vw;
+  height: auto;
+  width: 25vw;
+  border: solid;
+  color: white;
+  background-color: #00AAFF;
+  border-radius: 2vw; 
+}
 
+#funpicul li {
+  margin: 0 auto;
+  padding: 0.8vh 0;
+  font-size: 2.5vh;
+  height: 2.5vh;
+  text-align: center;
+  list-style-type: none;
 }
 
 #comment{
