@@ -107,49 +107,52 @@ $(document).ready(function(){
 
   //判斷是哪種模式
   function funcMode() {
-    if(funcNum==0){ 
-      botAppend(getAnswer());
-     
-    }
-    else if(funcNum==1){
-
-    }
-    else if(funcNum==2){
-      if($('#comment').val()=="999"){
-        funcNum=0;
-        text = "已經回到聊天模式囉~~";
-        botAppend(text);
+    if($('#comment').val()=="");
+    else {
+      if(funcNum==0){ 
+        botAppend(getAnswer());
       }
-      else {
-        instruction.currency = $('#comment').val();
-        $.post("./Exchange.js",instruction,function(data){
-          task(data);   
-        });
-        var task = function(msg){                                                 
-          $('.dialogbox').append(
-            "<div class=\"finbot\">"+
-            "<a><img class=\"finpic\" src=\"./images/chatroom/finpic.png\"></a>"+
-            "<div class=\"frecord\">"+"buyCash: "+msg.buyCash+"<br>buySpot: "+msg.buySpot+"<br>sellCash: "+msg.sellCash+"<br>sellSpot: "+msg.sellSpot+"</div>"+
-            "</div>");
+      else if(funcNum==1){
+  
+      }
+      else if(funcNum==2){
+        if($('#comment').val()=="999"){
+          funcNum=0;
+          text = "已經回到聊天模式囉~~";
+          botAppend(text);
+        }
+        else {
+          $.get("./Exchange.njs",$('#comment').val(),
+            function(data){
+              
+              $('.dialogbox').append(
+                "<div class=\"finbot\">"+
+                  "<a><img class=\"finpic\" src=\"./images/chatroom/finpic.png\"></a>"+
+                  "<div class=\"frecord\">" +"現金買入："+data.buyCash+"<br>即期買入："+data.buySpot+"<br>現金賣出："+data.sellCash+"<br>即期賣出："+data.sellSpot+ "</div>"+
+                "</div>");
 
-          $('.dialogbox').animate({ 
-            scrollTop: 99999999
-          }, 1000);
+              $('.dialogbox').animate({ 
+                scrollTop: 99999999
+                }, 1000);
+              
+              text = "請輸入想要查詢的幣別<br>欲取消查詢請輸入999";
+              botAppend(text);
+            },"json");
         }
       }
-    }
-    else if(funcNum==3){
-      if($('#comment').val()=="999"){
-        funcNum=0;
-        text = "已經回到聊天模式囉~~";
-         botAppend(text);
+      else if(funcNum==3){
+        if($('#comment').val()=="999"){
+          funcNum=0;
+          text = "已經回到聊天模式囉~~";
+          botAppend(text);
+        }
+        else {
+          text = $('#comment').val()+"已確認金額與轉帳對象<br>轉帳處理中";
+          botAppend(text);
+        }
       }
-      else {
-        text = $('#comment').val()+"已確認金額與轉帳對象<br>轉帳處理中";
-        botAppend(text);
-      }
+      $('#comment').val("");
     }
-    $('#comment').val("");
   }
 
   

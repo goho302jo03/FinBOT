@@ -1,0 +1,120 @@
+{
+    "createTime": 1494140401,
+    "updateTime": 1493971260,
+    "rates": {
+        "USD": {
+            "buyCash": "29.83000",
+            "buySpot": "30.13000",
+            "sellCash": "30.37200",
+            "sellSpot": "30.23000"
+        },
+        "HKD": {
+            "buyCash": "3.72700",
+            "buySpot": "3.84700",
+            "sellCash": "3.92200",
+            "sellSpot": "3.90700"
+        },
+        "GBP": {
+            "buyCash": "37.96000",
+            "buySpot": "38.83000",
+            "sellCash": "39.89000",
+            "sellSpot": "39.25000"
+        },
+        "AUD": {
+            "buyCash": "22.01000",
+            "buySpot": "22.20000",
+            "sellCash": "22.67000",
+            "sellSpot": "22.43000"
+        },
+        "CAD": {
+            "buyCash": "21.54000",
+            "buySpot": "21.81000",
+            "sellCash": "22.28000",
+            "sellSpot": "22.03000"
+        },
+        "SGD": {
+            "buyCash": "21.01000",
+            "buySpot": "21.43000",
+            "sellCash": "21.79000",
+            "sellSpot": "21.61000"
+        },
+        "CHF": {
+            "buyCash": "29.86000",
+            "buySpot": "30.39000",
+            "sellCash": "30.92000",
+            "sellSpot": "30.68000"
+        },
+        "JPY": {
+            "buyCash": "0.26070",
+            "buySpot": "0.26710",
+            "sellCash": "0.27170",
+            "sellSpot": "0.27110"
+        },
+        "ZAR": {
+            "buyCash": "0.00000",
+            "buySpot": "2.17000",
+            "sellCash": "0.00000",
+            "sellSpot": "2.25000"
+        },
+        "SEK": {
+            "buyCash": "3.03000",
+            "buySpot": "3.37000",
+            "sellCash": "3.54000",
+            "sellSpot": "3.47000"
+        },
+        "NZD": {
+            "buyCash": "20.47000",
+            "buySpot": "20.71000",
+            "sellCash": "21.10000",
+            "sellSpot": "20.91000"
+        },
+        "THB": {
+            "buyCash": "0.76690",
+            "buySpot": "0.85540",
+            "sellCash": "0.90990",
+            "sellSpot": "0.89540"
+        },
+        "PHP": {
+            "buyCash": "0.55560",
+            "buySpot": "0.00000",
+            "sellCash": "0.68860",
+            "sellSpot": "0.00000"
+        },
+        "IDR": {
+            "buyCash": "0.00193",
+            "buySpot": "0.00000",
+            "sellCash": "0.00263",
+            "sellSpot": "0.00000"
+        },
+        "EUR": {
+            "buyCash": "32.45000",
+            "buySpot": "32.95000",
+            "sellCash": "33.60000",
+            "sellSpot": "33.35000"
+        },
+        "KRW": {
+            "buyCash": "0.02475",
+            "buySpot": "0.00000",
+            "sellCash": "0.02865",
+            "sellSpot": "0.00000"
+        },
+        "VND": {
+            "buyCash": "0.00096",
+            "buySpot": "0.00000",
+            "sellCash": "0.00146",
+            "sellSpot": "0.00000"
+        },
+        "MYR": {
+            "buyCash": "5.90800",
+            "buySpot": "0.00000",
+            "sellCash": "7.44300",
+            "sellSpot": "0.00000"
+        },
+        "CNY": {
+            "buyCash": "4.27400",
+            "buySpot": "4.34600",
+            "sellCash": "4.43600",
+            "sellSpot": "4.39600"
+        }
+    }
+}
