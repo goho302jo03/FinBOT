@@ -168,7 +168,7 @@ $(document).ready(function(){
                 scrollTop: 99999999
                 }, 1000);
               
-              text = "請輸入金額與轉帳對象<br><br>欲取消轉帳請輸入999";
+              text = "請輸入金額與轉帳對象<br>Ex:8000 Eric<br><br>欲取消轉帳模式請輸入999";
               botAppend(text);
             },"json");
         }
@@ -218,7 +218,7 @@ $(document).ready(function(){
   $('#search3').click(function(){
     $('#funul').toggle('slow');
     funcNum = 3;
-    text = "請輸入金額與轉帳對象<br><br>欲取消轉帳請輸入999";
+    text = "請輸入金額與轉帳對象<br>Ex:8000 Eric<br><br>欲取消轉帳模式請輸入999";
     botAppend(text);
   });
 
