@@ -7,31 +7,32 @@ $(document).ready(function(){
 
   //聊天機器人關鍵字彙
   const qaList = [
-  { Q:"幹你娘", A:"我才幹你娘"},
+  { Q:"幹你娘", A:"我才幹你娘!"},
+  { Q:"嗨|哈囉", A:"嗨~你好|哈囉~有什麼事呢?"},
   { Q:"謝謝", A:"不客氣!"},
-  { Q:"對不起 | 抱歉 | 不好意思", A:"別說抱歉 !|別客氣，儘管說 !"},
-  { Q:"可否 | 可不可以", A:"你確定想*?"},
+  { Q:"對不起|抱歉|不好意思", A:"別說抱歉!|別客氣，儘管說!"},
+  { Q:"可否|可不可以", A:"你確定想*?"},
   { Q:"我想", A:"你為何想*?"},
   { Q:"我要", A:"你為何要*?"},
   { Q:"你是", A:"你認為我是*?"},
-  { Q:"認為 | 以為", A:"為何說*?"},
+  { Q:"認為|以為", A:"為何說*?"},
   { Q:"感覺", A:"常有這種感覺嗎?"},
   { Q:"為何不", A:"你希望我*!"},
   { Q:"是否", A:"為何想知道是否*?"},
   { Q:"不能", A:"為何不能*?|你試過了嗎?|或許你現在能*了呢?"},
   { Q:"我是", A:"你好，久仰久仰!"},
-  { Q:"甚麼 | 什麼 | 何時 | 誰 | 哪裡 | 如何 | 為何 | 因何", A:"為何這樣問?|為何你對這問題有興趣?|你認為答案是甚麼呢?|你認為如何呢?|你常問這類問題嗎?|這真的是你想知道的嗎?|為何不問問別人?|你曾有過類似的問題嗎?|你問這問題的原因是甚麼呢?"},
+  { Q:"甚麼|什麼|何時|誰|哪裡|如何|為何|因何", A:"為何這樣問?|為何你對這問題有興趣?|你認為答案是甚麼呢?|你認為如何呢?|你常問這類問題嗎?|這真的是你想知道的嗎?|為何不問問別人?|你曾有過類似的問題嗎?|你問這問題的原因是甚麼呢?"},
   { Q:"原因", A:"這是真正的原因嗎?|還有其他原因嗎?"}, 
   { Q:"理由", A:"這說明了甚麼呢?|還有其他理由嗎?"},
-  { Q:"你好 | 嗨 | 您好", A:"你好，有甚麼問題嗎?"},
+  { Q:"你好|嗨|您好", A:"你好，有甚麼問題嗎?"},
   { Q:"或許", A:"你好像不太確定?"},
-  { Q:"不曉得 | 不知道", A:"為何不知道?|在想想看，有沒有甚麼可能性?"},
-  { Q:"不想 | 不希望", A:"有沒有甚麼辦法呢?|為何不想*呢?|那你希望怎樣呢?"}, 
-  { Q:"想 | 希望", A:"為何想*呢?|真的想*?|那就去做阿?為何不呢?"},
+  { Q:"不曉得|不知道", A:"為何不知道?|在想想看，有沒有甚麼可能性?"},
+  { Q:"不想|不希望", A:"有沒有甚麼辦法呢?|為何不想*呢?|那你希望怎樣呢?"}, 
+  { Q:"想|希望", A:"為何想*呢?|真的想*?|那就去做阿?為何不呢?"},
   { Q:"不", A:"為何不*?|所以你不*?"},
   { Q:"請", A:"我該如何*呢?|你想要我*嗎?"},
   { Q:"你", A:"你真的是在說我嗎?|別說我了，談談你吧!|為何這麼關心我*?|不要再說我了，談談你吧!|你自己*"},
-  { Q:"總是 | 常常", A:"能不能具體說明呢?|何時?"},
+  { Q:"總是|常常", A:"能不能具體說明呢?|何時?"},
   { Q:"像", A:"有多像?|哪裡像?"},
   { Q:"對", A:"你確定嗎?|我了解!"},
   { Q:"朋友", A:"多告訴我一些有關他的事吧!|你認識他多久了呢?"},
@@ -107,49 +108,73 @@ $(document).ready(function(){
 
   //判斷是哪種模式
   function funcMode() {
-    if(funcNum==0){ 
-      botAppend(getAnswer());
-     
-    }
-    else if(funcNum==1){
-
-    }
-    else if(funcNum==2){
-      if($('#comment').val()=="999"){
-        funcNum=0;
-        text = "已經回到聊天模式囉~~";
-        botAppend(text);
+    if($('#comment').val()=="");
+    else {
+      if(funcNum==0){ 
+        botAppend(getAnswer());
       }
-      else {
-        instruction.currency = $('#comment').val();
-        $.post("./Exchange.js",instruction,function(data){
-          task(data);   
-        });
-        var task = function(msg){                                                 
-          $('.dialogbox').append(
-            "<div class=\"finbot\">"+
-            "<a><img class=\"finpic\" src=\"./images/chatroom/finpic.png\"></a>"+
-            "<div class=\"frecord\">"+"buyCash: "+msg.buyCash+"<br>buySpot: "+msg.buySpot+"<br>sellCash: "+msg.sellCash+"<br>sellSpot: "+msg.sellSpot+"</div>"+
-            "</div>");
-
-          $('.dialogbox').animate({ 
-            scrollTop: 99999999
-          }, 1000);
+      else if(funcNum==1){ 
+        if($('#comment').val()=="999"){
+          funcNum=0;
+          text = "已經回到聊天模式囉~~";
+          botAppend(text);
+        }
+        else {
+        
         }
       }
-    }
-    else if(funcNum==3){
-      if($('#comment').val()=="999"){
-        funcNum=0;
-        text = "已經回到聊天模式囉~~";
-         botAppend(text);
+      else if(funcNum==2){
+        if($('#comment').val()=="999"){
+          funcNum=0;
+          text = "已經回到聊天模式囉~~";
+          botAppend(text);
+        }
+        else {
+          $.get("./Exchange.njs",$('#comment').val(),
+            function(data){
+              
+              $('.dialogbox').append(
+                "<div class=\"finbot\">"+
+                  "<a><img class=\"finpic\" src=\"./images/chatroom/finpic.png\"></a>"+
+                  "<div class=\"frecord\">" +"現金買入："+data.buyCash+"<br>即期買入："+data.buySpot+"<br>現金賣出："+data.sellCash+"<br>即期賣出："+data.sellSpot+ "</div>"+
+                "</div>");
+
+              $('.dialogbox').animate({ 
+                scrollTop: 99999999
+                }, 1000);
+              
+              text = "請輸入想要查詢的幣別<br><br>欲取消查詢請輸入999";
+              botAppend(text);
+            },"json");
+        }
       }
-      else {
-        text = $('#comment').val()+"已確認金額與轉帳對象<br>轉帳處理中";
-        botAppend(text);
+      else if(funcNum==3){
+        if($('#comment').val()=="999"){
+          funcNum=0;
+          text = "已經回到聊天模式囉~~";
+          botAppend(text);
+        }
+        else {
+          $.get("./Transfer.njs",$('#comment').val(),
+            function(data){
+              
+              $('.dialogbox').append(
+                "<div class=\"finbot\">"+
+                  "<a><img class=\"finpic\" src=\"./images/chatroom/finpic.png\"></a>"+
+                  "<div class=\"frecord\">" +"確認匯款資訊中...."+"<br>受款人名："+data.name+"<br>匯款金額："+data.price+"<br><br>已確認金額與轉帳對象<br>轉帳成功!!!"+"</div>"+
+                "</div>");
+
+              $('.dialogbox').animate({ 
+                scrollTop: 99999999
+                }, 1000);
+              
+              text = "請輸入金額與轉帳對象<br>Ex:8000 Eric<br><br>欲取消轉帳模式請輸入999";
+              botAppend(text);
+            },"json");
+        }
       }
+      $('#comment').val("");
     }
-    $('#comment').val("");
   }
 
   
@@ -182,14 +207,15 @@ $(document).ready(function(){
   $('#search1').click(function(){
     $('#funul').toggle('slow');
     funcNum = 1;
-
+    text = "請輸入想要查詢的股票代號<br><br>欲取消查詢請輸入999";
+    botAppend(text);
   }); 
   
   //按下"匯率查詢"後，funcNum會設定為2
   $('#search2').click(function(){
     $('#funul').toggle('slow');
     funcNum = 2;
-    text = "請輸入想要查詢的幣別<br>欲取消查詢請輸入999";
+    text = "請輸入想要查詢的幣別<br><br>欲取消查詢請輸入999";
     botAppend(text);
   });
 
@@ -197,7 +223,7 @@ $(document).ready(function(){
   $('#search3').click(function(){
     $('#funul').toggle('slow');
     funcNum = 3;
-    text = "請輸入金額與轉帳對象<br>欲取消轉帳請輸入999";
+    text = "請輸入金額與轉帳對象<br>Ex:8000 Eric<br><br>欲取消轉帳模式請輸入999";
     botAppend(text);
   });
 
