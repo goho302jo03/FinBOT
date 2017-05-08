@@ -196,7 +196,12 @@ $(document).ready(function(){
   //按下左下功能鍵後需要toggle
   $('#fun').click(function(){
     $('#funul').toggle('slow');
-  }); 
+  });
+
+  //按右上選單鍵後需要toggle
+  $('#funpic').click(function(){
+    $('#funpicul').toggle('slow');
+  });
 
   //按下"股市查詢"後，funcNum會設定為1
   $('#search1').click(function(){
