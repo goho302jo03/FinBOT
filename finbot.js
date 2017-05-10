@@ -7,10 +7,11 @@ $(document).ready(function(){
 
   //聊天機器人關鍵字彙
   const qaList = [
-  { Q:"幹你娘", A:"我才幹你娘"},
+  { Q:"幹你娘", A:"我才幹你娘!"},
+  { Q:"嗨|哈囉", A:"嗨~你好|哈囉~有什麼事呢?"},
   { Q:"謝謝", A:"不客氣!"},
   { Q:"對不起|抱歉|不好意思", A:"別說抱歉!|別客氣，儘管說!"},
-  { Q:"可否| 可不可以", A:"你確定想*?"},
+  { Q:"可否|可不可以", A:"你確定想*?"},
   { Q:"我想", A:"你為何想*?"},
   { Q:"我要", A:"你為何要*?"},
   { Q:"你是", A:"你認為我是*?"},
@@ -113,8 +114,15 @@ $(document).ready(function(){
       if(funcNum==0){ 
         botAppend(getAnswer());
       }
-      else if(funcNum==1){
-  
+      else if(funcNum==1){ 
+        if($('#comment').val()=="999"){
+          funcNum=0;
+          text = "已經回到聊天模式囉~~";
+          botAppend(text);
+        }
+        else {
+        
+        }
       }
       else if(funcNum==2){
         if($('#comment').val()=="999"){
@@ -123,9 +131,10 @@ $(document).ready(function(){
           botAppend(text);
         }
         else {
+
           $.get("./Exchange.njs",$('#comment').val(),
             function(data){
-              
+                
               $('.dialogbox').append(
                 "<div class=\"finbot\">"+
                   "<a><img class=\"finpic\" src=\"./images/chatroom/finpic.png\"></a>"+
@@ -136,7 +145,7 @@ $(document).ready(function(){
                 scrollTop: 99999999
                 }, 1000);
               
-              text = "請輸入想要查詢的幣別<br>欲取消查詢請輸入999";
+              text = "請輸入想要查詢的幣別<br><br>欲取消查詢請輸入999";
               botAppend(text);
             },"json");
         }
@@ -148,8 +157,22 @@ $(document).ready(function(){
           botAppend(text);
         }
         else {
-          text = $('#comment').val()+"已確認金額與轉帳對象<br>轉帳處理中";
-          botAppend(text);
+          $.get("./Transfer.njs",$('#comment').val(),
+            function(data){
+              
+              $('.dialogbox').append(
+                "<div class=\"finbot\">"+
+                  "<a><img class=\"finpic\" src=\"./images/chatroom/finpic.png\"></a>"+
+                  "<div class=\"frecord\">" +"確認匯款資訊中...."+"<br>受款人名："+data.name+"<br>匯款金額："+data.price+"<br><br>已確認金額與轉帳對象<br>轉帳成功!!!"+"</div>"+
+                "</div>");
+
+              $('.dialogbox').animate({ 
+                scrollTop: 99999999
+                }, 1000);
+              
+              text = "請輸入金額與轉帳對象<br>Ex:8000 Eric<br><br>欲取消轉帳模式請輸入999";
+              botAppend(text);
+            },"json");
         }
       }
       $('#comment').val("");
@@ -175,20 +198,26 @@ $(document).ready(function(){
   //按下左下功能鍵後需要toggle
   $('#fun').click(function(){
     $('#funul').toggle('slow');
-  }); 
+  });
+
+  //按右上選單鍵後需要toggle
+  $('#funpic').click(function(){
+    $('#funpicul').toggle('slow');
+  });
 
   //按下"股市查詢"後，funcNum會設定為1
   $('#search1').click(function(){
     $('#funul').toggle('slow');
     funcNum = 1;
-
+    text = "請輸入想要查詢的股票代號<br><br>欲取消查詢請輸入999";
+    botAppend(text);
   }); 
   
   //按下"匯率查詢"後，funcNum會設定為2
   $('#search2').click(function(){
     $('#funul').toggle('slow');
     funcNum = 2;
-    text = "請輸入想要查詢的幣別<br>欲取消查詢請輸入999";
+    text = "請輸入想要查詢的幣別<br><br>欲取消查詢請輸入999";
     botAppend(text);
   });
 
@@ -196,7 +225,7 @@ $(document).ready(function(){
   $('#search3').click(function(){
     $('#funul').toggle('slow');
     funcNum = 3;
-    text = "請輸入金額與轉帳對象<br>欲取消轉帳請輸入999";
+    text = "請輸入金額與轉帳對象<br>Ex:8000 Eric<br><br>欲取消轉帳模式請輸入999";
     botAppend(text);
   });
 
