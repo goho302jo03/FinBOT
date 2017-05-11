@@ -13,7 +13,7 @@ var DaysLow= new RegExp(/<DaysLow>(.*)<\/DaysLow>/);
 var DaysHigh= new RegExp(/<DaysHigh>(.*)<\/DaysHigh>/);
 var Volume= new RegExp(/<Volume>(.*)<\/Volume>/);
 function task(input){
-      str="gioog";
+      str=input;
       request("https://query.yahooapis.com/v1/public/yql?q=select%20*%20from%20yahoo.finance.quote%20where%20symbol%20in%20(%22"+str+"%22)&diagnostics=true&env=store%3A%2F%2Fdatatables.org%2Falltableswithkeys",function(error, response, body){
 
 
