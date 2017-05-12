@@ -131,8 +131,7 @@ $(document).ready(function(){
         }
         else {
           $.get("./Exchange.njs",$('#comment').val(),
-            function(data){
-              
+            function(data){ 
               $('.dialogbox').append(
                 "<div class=\"finbot\">"+
                   "<a><img class=\"finpic\" src=\"./images/chatroom/finpic.png\"></a>"+
@@ -227,6 +226,20 @@ $(document).ready(function(){
     botAppend(text);
   });
 
+  //按下"帳戶登入"後，
+  $('#menu1').click(function(){
+    $('#funpicul').toggle('slow');
+  });
+
+  //按下"錯誤回報"後， 
+  $('#menu2').click(function(){
+    $('#funpicul').toggle('slow');
+  });
+
+  //按下"聯絡我們"後，
+  $('#menu3').click(function(){
+    $('#funpicul').toggle('slow');
+  });
 
 });
 
