@@ -120,7 +120,31 @@ $(document).ready(function(){
           botAppend(text);
         }
         else {
-        
+          $.get("./Stock.njs",$('#comment').val(),
+            function(data){
+              if(data.Name != "null"){
+              $('.dialogbox').append(
+                "<div class=\"finbot\">"+
+                  "<a><img class=\"finpic\" src=\"./images/chatroom/finpic.png\"></a>"+
+                  "<div class=\"frecord\">公司名稱 "+data.Name+"<br>價格低點 "+data.DaysLow+"<br>價格高點 "+data.DaysHigh+"<br>交易量 "+data.Volume+ "</div>"+
+                "</div>");
+              }
+              else {
+              $('.dialogbox').append(
+                "<div class=\"finbot\">"+
+                  "<a><img class=\"finpic\" src=\"./images/chatroom/finpic.png\"></a>"+
+                  "<div class=\"frecord\">"+"對不起 我不認識這間公司"+"</div>"+
+                "</div>");
+              }
+            
+            $('.dialogbox').animate({
+              scrollTop: 999999
+              }, 1000);
+
+
+
+            },"json");
+
         }
       }
       else if(funcNum==2){
