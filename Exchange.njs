@@ -1,7 +1,5 @@
 #!/usr/local/bin/node
 
-
-var chmod = require('chmod');
 var fs = require('fs');
 var request = require('request');
 
@@ -97,4 +95,4 @@ function task(input){
 
 setTimeout(function(){
   task(input);
-},1000);
+},0);
