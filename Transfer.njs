@@ -9,8 +9,8 @@ function spilt(input) {
   price = input.match(/\d*/g);
   name = input.match(/%20.*/g)[0].slice(3);
   output = {
-    "name"  : name,
-    "price" : price[0]
+      "name"  : name,
+      "price" : price[0]
   };
   str = JSON.stringify(output);
 
@@ -20,5 +20,6 @@ function spilt(input) {
 }
 
 setTimeout(function(){
-  spilt(input);
-},1000);
+  spilt(input);},1000);
+
+
