@@ -1,0 +1,19 @@
+{
+  "name": "finbot",
+  "version": "1.0.0",
+  "description": "<<<<<<< HEAD It's a uidd project YanjenChen git test v1 ======= It's a uidd project.",
+  "main": "Exchange.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/goho302jo03/FinBOT.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/goho302jo03/FinBOT/issues"
+  },
+  "homepage": "https://github.com/goho302jo03/FinBOT#readme"
+}

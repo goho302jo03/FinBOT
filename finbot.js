@@ -184,7 +184,8 @@ $(document).ready(function(){
               $('.dialogbox').append(
                 "<div class=\"finbot\">"+
                   "<a><img class=\"finpic\" src=\"./images/chatroom/finpic.png\"></a>"+
-                  "<div class=\"frecord\">" +"確認匯款資訊中...."+"<br>受款人名："+data.name+"<br>匯款金額："+data.price+"<br><br>已確認金額與轉帳對象<br>轉帳成功!!!"+"</div>"+
+                  "<div class=\"frecord\">" +"確認匯款資訊中...."+"<br>受款人名："+data.name+"<br>匯款金額："+data.price+
+                  "<br>系統回復為："+data.text+"<br>已確認金額與轉帳對象<br>轉帳成功!!!"+"</div>"+
                 "</div>");
 
               $('.dialogbox').animate({ 
@@ -195,6 +196,50 @@ $(document).ready(function(){
               botAppend(text);
             },"json");
         }
+      }
+      else if(funcNum==4){
+        $('.dialogbox').append(
+          "<div class=\"finbot\">"+
+            "<a><img class=\"finpic\" src=\"./images/chatroom/finpic.png\"></a>"+
+            "<canvas class=\"finChart\" width=\"10\" height=\"10\""+"</canvas>"+
+          "</div>");
+        
+        Chart.defaults.global.defaultFontSize = 50;
+
+        var ctx = document.getElementsByClassName("finChart");
+        var finChart = new Chart(ctx, {
+          type: 'bar',
+          data: {
+            labels: ["Red", "Blue"],
+            datasets: [{
+              label: "# of Customer",
+              data: [7, 4],
+              backgroundColor: [
+                'rgba(255, 99, 132, 0.2)',
+                'rgba(54, 162, 235, 0.2)'
+              ],
+              borderColor: [
+                'rgba(255,99,132,1)',
+                'rgba(54, 162, 235, 1)'
+              ],
+              borderWidth: 3
+            }]
+          },
+          options: {
+            legend: {display: false},
+            title: {display: true, text: $('#comment').val()},
+            scales: {
+              yAxes: [{
+                ticks: {
+                  beginAtZero: true,
+                }
+              }]
+            }
+          }
+        });
+
+        text = "已回到一般模式，測試結束！";
+        botAppend(text);
       }
       
       $('#comment').val("");
@@ -248,6 +293,14 @@ $(document).ready(function(){
     $('#funul').toggle('slow');
     funcNum = 3;
     text = "請輸入金額與轉帳對象<br>Ex:8000 Eric<br><br>欲取消轉帳模式請輸入999";
+    botAppend(text);
+  });
+
+  //按下"圖表測試"後，funcNum會設定為4
+  $('#search4').click(function(){
+    $('#funul').toggle('slow');
+    funcNum = 4;
+    text = "[測試模式]請輸入你的名字<br>輸出圖表後將自動切換回一般模式";
     botAppend(text);
   });
 
