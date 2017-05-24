@@ -8,14 +8,18 @@ $(document).ready(function(){
         horizontal() //橫式
     }
     }
- function horizontal(){*/  
+ function horizontal(){*/
+  var w = window.outerWidth;
+  var h = window.outerHeight;
+  alert('w= '+w+' h= '+h);
+  if( h >= w * 1.2){
     $('#photo1').click(function(){
       $('h1').animate({top:"50vh"});
       $('#photo1').animate({height: "30vw"  ,width: "30vw" ,top: "-13vh", left:"35vw"});
       $('#photo2').animate({height: "16vw"  ,width: "16vw" ,top: "0vh" , left:"-30vw"});
-      $('#photo3').animate({height: "16vw" ,width: "16vw" ,top: "11vh", left:"-58vw"});
-      $('#photo4').animate({height: "16vw" ,width: "16vw" ,top: "-2vh", left:"-1vw"});
-      $('#photo5').animate({height: "16vw" ,width: "16vw" ,top: "10vh", left:"-30vw"});
+      $('#photo3').animate({height: "16vw" ,width: "16vw" ,top: "11vh", left:"-59vw"});
+      $('#photo4').animate({height: "16vw" ,width: "16vw" ,top: "-2vh", left:"-2vw"});
+      $('#photo5').animate({height: "16vw" ,width: "16vw" ,top: "9vh", left:"-30vw"});
       $('.member p').hide();
       $('#info1').show("slow");
       $('#info2').slideUp();
@@ -29,9 +33,9 @@ $(document).ready(function(){
       $('#photo2').click(function(){
       $('#photo2').animate({height: "30vw"  ,width: "30vw" ,top: "-12vh", left:"2.4vw"});
       $('#photo1').animate({height: "16vw" ,width: "16vw" ,top: "0vh", left:"-1vw"});
-      $('#photo3').animate({height: "16vw" ,width: "16vw" ,top: "11vh", left:"-58vw"});
-      $('#photo4').animate({height: "16vw" ,width: "16vw" ,top: "-2vh", left:"-1vw"});
-      $('#photo5').animate({height: "16vw" ,width: "16vw" ,top: "10vh", left:"-30vw"});
+      $('#photo3').animate({height: "16vw" ,width: "16vw" ,top: "11vh", left:"-59vw"});
+      $('#photo4').animate({height: "16vw" ,width: "16vw" ,top: "-2vh", left:"-2vw"});
+      $('#photo5').animate({height: "16vw" ,width: "16vw" ,top: "9vh", left:"-30vw"});
       $('.member p').hide();
       $('#info1').slideUp();
       $('#info2').show("slow");
@@ -46,8 +50,8 @@ $(document).ready(function(){
       $('#photo3').animate({height: "30vw"  ,width: "30vw" ,top: "-13vh", left:"-24vw"});
       $('#photo1').animate({height: "16vw" ,width: "16vw" ,top: "0vh",left:"-1vw"});
       $('#photo2').animate({height: "16vw" ,width: "16vw" ,top: "11vh",left:"-30vw"});
-      $('#photo4').animate({height: "16vw" ,width: "16vw" ,top: "-2vh",left:"-1vw"});
-      $('#photo5').animate({height: "16vw" ,width: "16vw" ,top: "10vh",left:"-30vw"});
+      $('#photo4').animate({height: "16vw" ,width: "16vw" ,top: "-2vh",left:"-2vw"});
+      $('#photo5').animate({height: "16vw" ,width: "16vw" ,top: "9vh",left:"-30vw"});
       $('.member p').hide();
       $('#info1').slideUp();
       $('#info2').slideUp();
@@ -62,8 +66,8 @@ $(document).ready(function(){
       $('#photo4').animate({height: "30vw"  ,width: "30vw" ,top: "-37vh", left:"30vw"});
       $('#photo1').animate({height: "16vw" ,width: "16vw" ,top: "0vh", left:"-1vw"});
       $('#photo2').animate({height: "16vw" ,width: "16vw" ,top: "11vh", left:"-30vw"});
-      $('#photo3').animate({height: "16vw" ,width: "16vw" ,top: "22vh", left:"-58vw"});
-      $('#photo5').animate({height: "16vw" ,width: "16vw" ,top: "10vh", left:"-30vw"});
+      $('#photo3').animate({height: "16vw" ,width: "16vw" ,top: "22vh", left:"-59vw"});
+      $('#photo5').animate({height: "16vw" ,width: "16vw" ,top: "9vh", left:"-30vw"});
       $('.member p').hide();
       $('#info1').slideUp();
       $('#info2').slideUp();
@@ -79,7 +83,7 @@ $(document).ready(function(){
       $('#photo1').animate({height: "16vw" ,width: "16vw" ,top: "0vh", left:"-1vw"});
       $('#photo2').animate({height: "16vw" ,width: "16vw" ,top: "11vh", left:"-30vw"});
       $('#photo3').animate({height: "16vw" ,width: "16vw" ,top: "22vh", left:"-58vw"});
-      $('#photo4').animate({height: "16vw" ,width: "16vw" ,top: "10vh", left:"-1vw"});
+      $('#photo4').animate({height: "16vw" ,width: "16vw" ,top: "9vh", left:"-1vw"});
       $('.member p').hide();
       $('#info1').slideUp();
       $('#info2').slideUp();
@@ -106,9 +110,13 @@ $(document).ready(function(){
       $('.list').css("background-color","#F4C70B");
       $('.page2').hide();
     });
-});
-
-/*
+  }  
+else{
+$('.member').css({height:'14vw',width:'14vw'});
+$('.member img').css({height:'11vw',width:'11vw'});
+$('h1').css({'font-size':'6vw'});
+$('h3').css({'font-size':'2vw'});
+$('.btn').css({right:'50vw'});
 $('#photo1').click(function(){
       $('#photo1').animate({height: "17vw"  ,width: "17vw" ,top: "-2vh", left:"20vw"});
       $('#photo2').animate({height: "3.5vw" ,width: "3.5vw" ,top: "6vh" , left:"-28.1vw"});
@@ -204,5 +212,8 @@ $('#photo1').click(function(){
       $('.btn').hide();
       $('.list').css("background-color","#F4C70B");
       $('.page2').hide();
-    });
-});*/
+   //wide version
+    $('.member').css({height:'14vw',width:'14vw'});
+   });
+  }
+});
