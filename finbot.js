@@ -243,7 +243,28 @@ $(document).ready(function(){
         text = "已回到一般模式，測試結束！";
         botAppend(text);
       }
+      else if(funcNum==5){
+         
+         $.get("./goldprice.njs",$("#comment").val(),
+          function(data){
+            $('.dialogbox').append(
+              "<div class=\"finbot\">"+
+              "<a><img class=\"finpic\" src=\"./images/chatroom/finpic.png\"></a>"+
+              "<canvas class=\"goldChart\" width=\"10\" height=\"10\""+"</canvas>"+
+              "</div>");
+       
+              Chart.defaults.global.defaultFontSize = 50;
+        
+              var gtx = document.getElementsByClassName('goldchart');
+              var goldchart = new Chart(gtx,{
+                type: 'line',
+                data:{
+                  
+                }
+              })  
       
+            },"json");
+      }
       $('#comment').val("");
     }
   }
@@ -305,7 +326,15 @@ $(document).ready(function(){
     text = "[測試模式]請輸入你的名字<br>輸出圖表後將自動切換回一般模式";
     botAppend(text);
   });
-
+  
+  //按下"黃金查詢"後，funcNum會設定為5
+  $('#search5').click(function(){
+    $('#funul').toggle('slow');
+    funcNum = 5;
+    text = "稍等";
+    botAppend(text);
+  });
+  
   //按下"帳戶登入"後，
   $('#menu1').click(function(){
     $('#funpicul').toggle('slow');
