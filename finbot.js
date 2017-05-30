@@ -73,6 +73,7 @@ $(document).ready(function(){
         var qList = qa.Q.split("|"); // 取出 Q 部分，分割成一個一個的問題字串 q
         var aList = qa.A.split("|"); // 取出回答 A 部分，分割成一個一個的回答字串 q
         for (var qi in qList) { // 對於每個問題字串 q
+          var q = qList[qi];
           if (q =="") // 如果是最後一個「空字串」的話，那就不用比對，直接任選一個回答。
             return aList[random(aList.length)]; // 那就從答案中任選一個回答
           var r = new RegExp("(.*)"+q+"([^?.;]*)", "gi"); // 建立正規表達式 (.*) q ([^?.;]*)
