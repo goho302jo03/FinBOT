@@ -41,6 +41,7 @@ $(document).ready(function(){
   { Q:"難過", A:"別想它了|別難過|別想那麼多了|事情總是會解決的"},
   { Q:"高興", A:"不錯ㄚ|太棒了|這樣很好ㄚ"},
   { Q:"是阿|是的", A:"甚麼事呢?|我可以幫助你嗎?|我希望我能幫得上忙!"},
+  { Q:"再見|bye", A:"再見"},
   { Q:"", A:"我了解|我能理解|還有問題嗎 ?|請繼續說下去|可以說的更詳細一點嗎?|這樣喔! 我知道!|然後呢? 發生甚麼事?|再來呢? 可以多說一些嗎|接下來呢? |可以多告訴我一些嗎?|多談談有關你的事，好嗎?|想多聊一聊嗎|可否多告訴我一些呢?"}
   ];
   
@@ -157,6 +158,7 @@ $(document).ready(function(){
           botAppend(text);
         }
         else {
+
           $.get("./Exchange.njs",$('#comment').val(),
             function(data){ 
               $('.dialogbox').append(
@@ -321,6 +323,44 @@ $(document).ready(function(){
           funcNum=current_mode;              
         }
       }
+
+      else if(funcNum==6){
+         funcNum = 0;
+
+          $('.dialogbox').append(
+            "<div class=\"finbot\">"+
+            "<a><img class=\"finpic\" src=\"./images/chatroom/finpic.png\"></a>"+
+            "<div class=\"frecord\"> 請稍等喔 </div>");
+          
+          $.get("./goldprice.njs",$("#comment").val(),
+        
+          function(data){
+            
+            $('.dialogbox').append(
+              "<div class=\"finbot\">"+
+              "<a><img class=\"finpic\" src=\"./images/chatroom/finpic.png\"></a>"+
+              "<div class=\"frecord\"> 最新的黃金價格是 US$"+ data.newestGoldpriceUSD+"（"+data.endate+"）</div>");
+             
+            $('.dialogbox').append(
+              "<div class=\"finbot\">"+
+              "<a><img class=\"finpic\" src=\"./images/chatroom/finpic.png\"></a>"+
+             "<canvas class=\"goldChart\" width=\"10\" height=\"10\""+"</canvas>"+
+              "</div>");
+       
+              
+              Chart.defaults.global.defaultFontSize = 50;
+              
+              var EdGp = data.everydayGoldpriceUSD;
+
+              var gtx = document.getElementsByClassName('goldchart');
+              var goldchart = new Chart(gtx,{
+                type: 'line',
+                data: EdGp,
+              });  
+      
+           } ,"json");
+      }
+
       $('#comment').val("");
     }
   }
@@ -382,6 +422,16 @@ $(document).ready(function(){
     text = "[測試模式]請輸入你的名字<br>輸出圖表後將自動切換回一般模式";
     botAppend(text);
   });
+
+  
+  //按下"黃金查詢"後，funcNum會設定為5
+  $('#search6').click(function(){
+    $('#funul').toggle('slow');
+    funcNum = 6;
+    text = "想知道最近黃金價格的走勢嗎？";
+    botAppend(text);
+  });
+  
 
   //按下"帳戶登入"後，進入登入頁面
   $('#menu1').click(function(){
