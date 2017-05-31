@@ -11,7 +11,16 @@ function task(input){
   
   output={
     "Name" : input,
-    "DaysLow" : "segd"
+    "stock1" : "stock1",
+    "stock2" : "stock2",
+    "stock3" : "stock3",
+    "stock4" : "stock4",
+    "stock5" : "stock5",
+    "confident1" : 35,
+    "confident2" : 97,
+    "confident3" : 73,
+    "confident4" : 35,
+    "confident5" : 34
   };
 
   str = JSON.stringify(output);

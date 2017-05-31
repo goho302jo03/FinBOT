@@ -1,11 +1,11 @@
-
 $(document).ready(function(){
   
   var funcNum = 0;
   var text;
   var instruction = {};
   var current_mode=0;
-
+  var chart_name="chart_";
+  
   //聊天機器人關鍵字彙
   const qaList = [
   { Q:"幹你娘", A:"我才幹你娘!"},
@@ -145,7 +145,7 @@ $(document).ready(function(){
           
           
           var random_recommand=random(10);
-          if(random_recommand%5==2){
+          if(random_recommand%3==1){
             current_mode=funcNum;
             funcNum=5;
           }
@@ -243,6 +243,9 @@ $(document).ready(function(){
           }
         });
 
+        delete finChart;
+
+        funcNum=0;
         text = "已回到一般模式，測試結束！";
         botAppend(text);
       } 
@@ -263,7 +266,53 @@ $(document).ready(function(){
                   "<a><img class=\"finpic\" src=\"./images/chatroom/finpic.png\"></a>"+
                   "<div class=\"frecord\">" +data.Name+"</div>"+
                   "</div>");
+        
+        chart_name=chart_name+'1';
+        $('.dialogbox').append(
+          "<div class=\"finbot\">"+
+            "<a><img class=\"finpic\" src=\"./images/chatroom/finpic.png\"></a>"+
+            "<canvas class=\""+chart_name+"\" width=\"10\" height=\"10\""+"</canvas>"+
+          "</div>");
+        
+        Chart.defaults.global.defaultFontSize = 50;
 
+        var ctx = document.getElementsByClassName(chart_name);
+        var finChart = new Chart(ctx, {
+          type: 'bar',
+          data: {
+            labels: [data.stock1, data.stock2, data.stock3, data.stock4, data.stock5],
+            datasets: [{
+              label: "% of confidence",
+              data: [data.confident1, data.confident2, data.confident3 , data.confident4 ,data.confident5],
+              backgroundColor: [
+                'rgba(255, 99, 132, 0.2)',
+                'rgba(54, 162, 235, 0.2)',
+                'rgba(255,206,86, 0.2)',
+                'rgba(75, 192, 192, 0.2)',
+                'rgba(153, 102, 255, 0.2)'
+              ],
+              borderColor: [
+                'rgba(255,99,132,1)',
+                'rgba(54, 162, 235, 1)',
+                'rgba(255, 206, 86, 1)',
+                'rgba(75, 192, 192, 1)',
+                'rgba(153, 102, 255, 1)'
+              ],
+              borderWidth: 3
+            }]
+          },
+          options: {
+            legend: {display: true},
+            title: {display: true, text: "推薦列表"},
+            scales: {
+              yAxes: [{
+                ticks: {
+                  beginAtZero: true,
+                }
+              }]
+            }
+          }
+        });
                   $('.dialogbox').animate({ 
                   scrollTop: 99999999
                   }, 1000);
@@ -373,6 +422,7 @@ $(document).ready(function(){
     text = "[測試模式]請輸入你的名字<br>輸出圖表後將自動切換回一般模式";
     botAppend(text);
   });
+
   
   //按下"黃金查詢"後，funcNum會設定為5
   $('#search6').click(function(){
@@ -382,9 +432,11 @@ $(document).ready(function(){
     botAppend(text);
   });
   
-  //按下"帳戶登入"後，
+
+  //按下"帳戶登入"後，進入登入頁面
   $('#menu1').click(function(){
     $('#funpicul').toggle('slow');
+    location.href = "./login.html";
   });
 
   //按下"錯誤回報"後， 

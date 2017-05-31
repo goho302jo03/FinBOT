@@ -1,0 +1,82 @@
+#!/usr/bin/env node
+
+// search `api call` for availabe apis
+// check http://zoro.ee.ncku.edu.tw/esp/esp-promise for the promise version
+
+const esp = require('easy-sinopac/easy-sinopac')
+const args = process.argv.splice(2)
+
+const help = () => {
+  console.log(
+`Usage:
+
+  ./esp account create [account] [amount]
+  ./esp account read [account]
+  ./esp pay create [source] [destination] [amount]
+  ./esp pay confirm [pay]
+  ./esp pay read [pay]
+  ./esp transfer create [source] [destination] [amount]
+  ./esp transfer read [pay]
+
+See \`easy-sinopac.README\` for more help.`
+  )
+  process.exit()
+}
+
+if (0 === args.length) help()
+if (1 === args.length) {
+  console.log('ERROR: invalid command\n')
+  help()
+}
+
+const resource = args[0]
+const action = args[1]
+
+if (!esp[resource] || 'function' !== typeof esp[resource][action]) {
+  console.log('ERROR: invalid command\n')
+  help()
+}
+
+const callback = (erro, resp) => {
+  if (erro)
+    console.log(erro)
+  else
+    console.log(`${resource} ${action}-ed`, resp)
+}
+
+console.log(`${action}-ing ${resource}...`)
+if ('account' === resource) {
+  if ('create' === action) {
+    const account = args[2]
+    const amount = args[3]
+    esp.account.create(account, amount, callback) // api call
+  } else if ('read' === action){
+    const account = args[2]
+    esp.account.read(account, callback) // api call
+  }
+} else if ('pay' === resource) {
+  if ('create' === action) {
+    const source = args[2]
+    const destination = args[3]
+    const amount = args[4]
+    esp.pay.create(source, destination, amount, callback) // api call
+  } else if ('confirm' === action) {
+    const pay = args[2]
+    esp.pay.confirm(pay, callback) // api call
+  } else if ('read' === action){
+    const pay = args[2]
+    esp.pay.read(pay, callback) // api call
+  }
+} else if ('transfer' === resource) {
+  if ('create' === action) {
+    const source = args[2]
+    const destination = args[3]
+    const amount = args[4]
+    esp.transfer.create(source, destination, amount, callback) // api call
+  } else if ('read' === action){
+    const transfer = args[2]
+    esp.transfer.read(transfer, callback) // api call
+  }
+}
+
+// vi:ft=javascript
