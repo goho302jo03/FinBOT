@@ -1,7 +1,7 @@
 #!/usr/local/bin/node
 
 var input = process.env.QUERY_STRING;
-//var esp = require('easy-sinopac/easy-sinopac');
+var esp = require('easy-sinopac/easy-sinopac');
 
 var price, name, text;
 var output;
