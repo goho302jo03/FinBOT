@@ -276,26 +276,40 @@ $(document).ready(function(){
       }
 
       else if(funcNum==6){
-         
-         $.get("./goldprice.njs",$("#comment").val(),
+         funcNum = 0;
+
+          $('.dialogbox').append(
+            "<div class=\"finbot\">"+
+            "<a><img class=\"finpic\" src=\"./images/chatroom/finpic.png\"></a>"+
+            "<div class=\"frecord\"> 請稍等喔 </div>");
+          
+          $.get("./goldprice.njs",$("#comment").val(),
+        
           function(data){
+            
             $('.dialogbox').append(
               "<div class=\"finbot\">"+
               "<a><img class=\"finpic\" src=\"./images/chatroom/finpic.png\"></a>"+
-              "<canvas class=\"goldChart\" width=\"10\" height=\"10\""+"</canvas>"+
+              "<div class=\"frecord\"> 最新的黃金價格是 US$"+ data.newestGoldpriceUSD+"（"+data.endate+"）</div>");
+             
+            $('.dialogbox').append(
+              "<div class=\"finbot\">"+
+              "<a><img class=\"finpic\" src=\"./images/chatroom/finpic.png\"></a>"+
+             "<canvas class=\"goldChart\" width=\"10\" height=\"10\""+"</canvas>"+
               "</div>");
        
+              
               Chart.defaults.global.defaultFontSize = 50;
-        
+              
+              var EdGp = data.everydayGoldpriceUSD;
+
               var gtx = document.getElementsByClassName('goldchart');
               var goldchart = new Chart(gtx,{
                 type: 'line',
-                data:{
-                  
-                }
-              })  
+                data: EdGp,
+              });  
       
-            },"json");
+           } ,"json");
       }
 
       $('#comment').val("");
@@ -361,10 +375,10 @@ $(document).ready(function(){
   });
   
   //按下"黃金查詢"後，funcNum會設定為5
-  $('#search5').click(function(){
+  $('#search6').click(function(){
     $('#funul').toggle('slow');
     funcNum = 6;
-    text = "稍等";
+    text = "想知道最近黃金價格的走勢嗎？";
     botAppend(text);
   });
   
