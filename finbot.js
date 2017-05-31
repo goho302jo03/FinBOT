@@ -4,6 +4,7 @@ $(document).ready(function(){
   var funcNum = 0;
   var text;
   var instruction = {};
+  var current_mode=0;
 
   //聊天機器人關鍵字彙
   const qaList = [
@@ -137,15 +138,17 @@ $(document).ready(function(){
                   "<div class=\"frecord\">"+"對不起 我不認識這間公司"+"</div>"+
                 "</div>");
               }
-            
             $('.dialogbox').animate({
               scrollTop: 999999
               }, 1000);
-
-
-
             },"json");
-
+          
+          
+          var random_recommand=random(10);
+          if(random_recommand%5==2){
+            current_mode=funcNum;
+            funcNum=5;
+          }
         }
       }
       else if(funcNum==2){
@@ -242,8 +245,37 @@ $(document).ready(function(){
 
         text = "已回到一般模式，測試結束！";
         botAppend(text);
-      }
+      } 
       else if(funcNum==5){
+        if($('#comment').val()=="999"){
+          funcNum=0;
+          text = "已經回到聊天模式囉~~";
+          botAppend(text);
+        }
+        else { 
+              botAppend("先別管這個了");
+              botAppend("我們有一支股票還不錯，您可以參考看看");
+              $.get("./Predict.njs",$('#comment').val(),
+                function(data){
+              
+                  $('.dialogbox').append(
+                  "<div class=\"finbot\">"+
+                  "<a><img class=\"finpic\" src=\"./images/chatroom/finpic.png\"></a>"+
+                  "<div class=\"frecord\">" +data.Name+"</div>"+
+                  "</div>");
+
+                  $('.dialogbox').animate({ 
+                  scrollTop: 99999999
+                  }, 1000);
+              
+              text = "希望您喜歡我們提供的資訊";
+              botAppend(text);
+              },"json");
+          funcNum=current_mode;              
+        }
+      }
+
+      else if(funcNum==6){
          
          $.get("./goldprice.njs",$("#comment").val(),
           function(data){
@@ -265,6 +297,7 @@ $(document).ready(function(){
       
             },"json");
       }
+
       $('#comment').val("");
     }
   }
@@ -330,7 +363,7 @@ $(document).ready(function(){
   //按下"黃金查詢"後，funcNum會設定為5
   $('#search5').click(function(){
     $('#funul').toggle('slow');
-    funcNum = 5;
+    funcNum = 6;
     text = "稍等";
     botAppend(text);
   });
