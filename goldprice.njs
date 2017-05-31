@@ -3,24 +3,26 @@
 var fs = require('fs');
 var request = require('request');
 
-var test;
+
 var output;
+var endate;
 var goldprice;
-var data;
-var all
 var newestGoldpriceUSD;
+var date=[];
 var everydayGoldpriceUSD=[];
+var str
 
 function gochart(){
   request("https://www.quandl.com/api/v3/datasets/LBMA/GOLD.json" , function (error, response, body) {
     
-    var endate = (JSON.parse(body)).dataset.end_date;
+    endate = (JSON.parse(body)).dataset.end_date;
     goldprice = (JSON.parse(body)).dataset.data;  
 
     newestGoldpriceUSD = goldprice[0][1];
     //console.log("The newest gold price is US$"+newestGoldpriceUSD+" at "+endate);
     
       for(var i=31, j=0; i>=0,j<=31; i--,j++){
+        date[j] = goldprice[i][0];
         everydayGoldpriceUSD[j] = goldprice[i][1]; 
       }
     
@@ -28,6 +30,7 @@ function gochart(){
     output = {
               "endate"               : endate,
               "newestGoldpriceUSD"   : newestGoldpriceUSD,
+              "date"                 : date,
               "everydayGoldpriceUSD" : everydayGoldpriceUSD,
     }
     

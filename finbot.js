@@ -334,33 +334,43 @@ $(document).ready(function(){
           
           $.get("./goldprice.njs",$("#comment").val(),
         
-          function(data){
-            
+          function(data){     
             $('.dialogbox').append(
               "<div class=\"finbot\">"+
               "<a><img class=\"finpic\" src=\"./images/chatroom/finpic.png\"></a>"+
-              "<div class=\"frecord\"> 最新的黃金價格是 US$"+ data.newestGoldpriceUSD+"（"+data.endate+"）</div>");
-             
+              "<div class=\"frecord\"> 最新的黃金價格是 US$"+ data.newestGoldpriceUSD+"（"+data.endate+"）</div>"); 
             $('.dialogbox').append(
               "<div class=\"finbot\">"+
               "<a><img class=\"finpic\" src=\"./images/chatroom/finpic.png\"></a>"+
-             "<canvas class=\"goldChart\" width=\"10\" height=\"10\""+"</canvas>"+
+             "<canvas id=\"goldChart\" width=\"10\" height=\"10\""+"</canvas>"+
               "</div>");
        
-              
               Chart.defaults.global.defaultFontSize = 50;
-              
-              var EdGp = data.everydayGoldpriceUSD;
+            
+              var goldprice = data.everydayGoldpriceUSD;
+              var date = data.date;
+              var data ={
+                   labels:[1,2,3,4],
+                   datasets: [
+                        {
+                           label: "goldprice",
+                           data: [1203,1240,1203,1267],
+                        }   
+                   ]             
+              };
+              var options={};
 
-              var gtx = document.getElementsByClassName('goldchart');
-              var goldchart = new Chart(gtx,{
-                type: 'line',
-                data: EdGp,
-              });  
-      
-           } ,"json");
-      }
-
+              var gtx = $("#goldchart");
+              var goldchart = new Chart(gtx).Line(data,options);
+               /* labels: [1,2,3,4],
+                datasets: [{
+                    label: 'goldprice',
+                    data: [1203,1340,1320,1274],
+                }],
+                options: {}  
+               );*/    
+           },"json");
+       }   
       $('#comment').val("");
     }
   }
