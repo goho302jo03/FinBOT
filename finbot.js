@@ -1,4 +1,3 @@
-
 $(document).ready(function(){
   
   var funcNum = 0;
@@ -238,6 +237,9 @@ $(document).ready(function(){
           }
         });
 
+        delete finChart;
+
+        funcNum=0;
         text = "已回到一般模式，測試結束！";
         botAppend(text);
       }
@@ -304,9 +306,10 @@ $(document).ready(function(){
     botAppend(text);
   });
 
-  //按下"帳戶登入"後，
+  //按下"帳戶登入"後，進入登入頁面
   $('#menu1').click(function(){
     $('#funpicul').toggle('slow');
+    location.href = "./login.html";
   });
 
   //按下"錯誤回報"後， 

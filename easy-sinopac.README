@@ -1,0 +1,101 @@
+# easy-sinopac v0.0.2
+
+easy-sinopac 是一套方便使用的金融 API
+
+## 安裝
+
+```
+sh -c "$(curl -fsSL http://zoro.ee.ncku.edu.tw/esp/script)"
+```
+
+## 快速上手
+
+```
+const esp = require('easy-sinopac/easy-sinopac')
+
+// via callback
+esp.account.create(account, amount, (erro, resp) => {
+  if (erro)
+    return console.log(erro)
+  console.log(resp)
+})
+
+// via promise
+esp.account.read(account).then(resp => {
+  console.log(resp)
+}).catch(erro => {
+  console.log(error)
+})
+
+```
+
+easy-sinopac 目前提供了 7 個函式，每個函式皆支援 callback 跟 promise 兩種用法，在必要的參數後加上一個 callback 函式即使用 callback 用法，反之則使用 promise 用法。每個函式的參數及功能請參考以下的說明
+
+## 函式
+
+* esp.account.create(account, amount, [callback])
+
+  建立名為 account 的帳戶並將餘額設為 amount，結束時呼叫
+
+  ```
+  callback(error, { dst: 帳戶名稱 })
+  ```
+
+  error 為 null 時表示操作成功，以下函式相同
+
+* esp.account.read(account, [callback])
+
+  查詢名為 account 的帳戶資料，結束時呼叫
+
+  ```
+  callback(error, { balance: 帳戶餘額, id: 帳戶名稱 })
+  ```
+
+* esp.pay.create(source, destination, amount, [callback])
+
+  建立由 source 帳戶給 destination 帳戶且金額為 amount 的付款(付款在確認前不會執行)，結束時呼叫
+
+  ```
+  callback(error, { orderNo: 付款編號, src: 付款來源, dst: 付款對象 })
+  ```
+
+* esp.pay.confirm(pay, [callback])
+
+  確認並執行編號為 pay 的付款，結束時呼叫
+
+  ```
+  callback(error, { src: 付款來源, dst: 付款對象 })
+  ```
+
+* esp.pay.read(pay, [callback])
+
+  查詢編號為 pay 的付款資料，結束時呼叫
+
+  ```
+  callback(error, { orderNo: 付款編號, amount: 付款金額, src: 付款來源, dst: 付款對象, confirmed: 付款確認與否 })
+  ```
+
+* esp.transfer.create(source, destination, amount, [callback])
+
+  建立由 source 帳戶給 destination 帳戶且金額為 amount 的轉帳(轉帳建立成功後立刻執行)，結束時呼叫
+
+  ```
+  callback(error, { orderNo: 轉帳編號, src: 轉帳來源, dst: 轉帳對象 })
+  ```
+
+* esp.transfer.read(transfer, [callback])
+
+  查詢編號為 transfer 的轉帳資料，結束時呼叫
+
+  ```
+  callback(error, { orderNo: 轉帳編號, amount: 轉帳金額, src: 轉帳來源, dst: 轉帳對象 })
+  ```
+
+## 範例程式
+
+easy-sinopac 提供了一支範例程式(`./node_modules/.bin/esp`)，裡頭包含所有函式的使用範例，也可以當成 easy-sinopac API 的命令列模式執行，執行範例如下：
+
+```
+$ ./node_modules/.bin/esp account create [account] [amount] # 建立名為 [account] 的帳戶並將餘額設為 [amount]
+$ ./node_modules/.bin/esp # 列出所有命令
+```
