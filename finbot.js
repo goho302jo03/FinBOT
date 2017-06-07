@@ -334,33 +334,46 @@ $(document).ready(function(){
           
           $.get("./goldprice.njs",$("#comment").val(),
         
-          function(data){
-            
+          function(data){     
             $('.dialogbox').append(
               "<div class=\"finbot\">"+
               "<a><img class=\"finpic\" src=\"./images/chatroom/finpic.png\"></a>"+
-              "<div class=\"frecord\"> 最新的黃金價格是 US$"+ data.newestGoldpriceUSD+"（"+data.endate+"）</div>");
-             
+              "<div class=\"frecord\"> 最新的黃金價格是 US$"+ data.newestGoldpriceUSD+"（"+data.endate+"）</div>"); 
             $('.dialogbox').append(
               "<div class=\"finbot\">"+
               "<a><img class=\"finpic\" src=\"./images/chatroom/finpic.png\"></a>"+
              "<canvas class=\"goldChart\" width=\"10\" height=\"10\""+"</canvas>"+
               "</div>");
        
-              
-              Chart.defaults.global.defaultFontSize = 50;
-              
-              var EdGp = data.everydayGoldpriceUSD;
+              Chart.defaults.global.defaultFontSize = 8;
+            
+              var goldprice = data.everydayGoldpriceUSD;
+              var date = data.date;
 
-              var gtx = document.getElementsByClassName('goldchart');
-              var goldchart = new Chart(gtx,{
-                type: 'line',
-                data: EdGp,
-              });  
-      
-           } ,"json");
-      }
-
+              var ctx = document.getElementsByClassName("goldChart");
+              var goldchart = new Chart(ctx,{
+                  type: 'line',
+                  data:{
+                    labels: date,
+                    datasets: [{
+                      label: 'goldprice',
+                      data: goldprice,
+                    }]
+                  },
+                  options: {
+                    legend: {display: false},
+                    title: {display: true, text: $('#comment').val()},
+                    scales: {
+                      yAxes: [{
+                        ticks: {
+                          beginAtZero: true,
+                        }
+                      }]
+                    }
+                  }   
+                  });   
+           },"json");
+       }   
       $('#comment').val("");
     }
   }
