@@ -21,7 +21,7 @@ function gochart(){
     newestGoldpriceUSD = goldprice[0][1];
     //console.log("The newest gold price is US$"+newestGoldpriceUSD+" at "+endate);
     
-      for(var i=31, j=0; i>=0,j<=31; i--,j++){
+      for(var i=20, j=0; i>=0,j<=20; i--,j++){
         date[j] = goldprice[i][0];
         everydayGoldpriceUSD[j] = goldprice[i][1]; 
       }
