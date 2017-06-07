@@ -13,12 +13,18 @@ body {
 }
 
 h1 {
-  margin: 22vh 0 10vh 0;
+  margin: 1vh 0 2vh 0;
   font-size: 9vw;
 }
 
+#loginpic {
+  margin: 18vh 0 0 0;
+  width: 40vw;
+  height: 40vw;
+}
+
 input[type=text], input[type=password] {
-  width: 80vw;
+  width: 60vw;
   margin: 0 0 5vw 0;
   padding: 1vh 0 1vh 2vw;
   font-size: 4.5vw;
@@ -29,7 +35,7 @@ input[type=text], input[type=password] {
 }
 
 #Login {
-  width: 80vw;
+  width: 60vw;
   margin: 0 0 5vw 0;
   padding: 1vh 0 1vh 2vw; 
   font-size: 4.5vw;
@@ -41,7 +47,7 @@ input[type=text], input[type=password] {
   transition-duration: 0.4s;
 }
 
-button:hover {
+#Login:hover {
   background-color: #0083B3;
 }
 
@@ -52,4 +58,21 @@ p {
 
 #signup {
   display: none;
+}
+
+#Signup {
+  width: 60vw;
+  margin: 0 0 5vw 0;
+  padding: 1vh 0 1vh 2vw; 
+  font-size: 4.5vw;
+  background-color: #00BBFF;
+  color: #F2F2F2;
+  border: 0.5vw solid #F2F2F2;
+  border-radius: 1.4vh;
+  box-sizing: border-box;
+  transition-duration: 0.4s;
+}
+
+#Signup:hover {
+  background-color: #0083B3;
 }
