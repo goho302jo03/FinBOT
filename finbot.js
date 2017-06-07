@@ -342,33 +342,36 @@ $(document).ready(function(){
             $('.dialogbox').append(
               "<div class=\"finbot\">"+
               "<a><img class=\"finpic\" src=\"./images/chatroom/finpic.png\"></a>"+
-             "<canvas id=\"goldChart\" width=\"10\" height=\"10\""+"</canvas>"+
+             "<canvas class=\"goldChart\" width=\"10\" height=\"10\""+"</canvas>"+
               "</div>");
        
-              Chart.defaults.global.defaultFontSize = 50;
+              Chart.defaults.global.defaultFontSize = 8;
             
               var goldprice = data.everydayGoldpriceUSD;
               var date = data.date;
-              var data ={
-                   labels:[1,2,3,4],
-                   datasets: [
-                        {
-                           label: "goldprice",
-                           data: [1203,1240,1203,1267],
-                        }   
-                   ]             
-              };
-              var options={};
 
-              var gtx = $("#goldchart");
-              var goldchart = new Chart(gtx).Line(data,options);
-               /* labels: [1,2,3,4],
-                datasets: [{
-                    label: 'goldprice',
-                    data: [1203,1340,1320,1274],
-                }],
-                options: {}  
-               );*/    
+              var ctx = document.getElementsByClassName("goldChart");
+              var goldchart = new Chart(ctx,{
+                  type: 'line',
+                  data:{
+                    labels: date,
+                    datasets: [{
+                      label: 'goldprice',
+                      data: goldprice,
+                    }]
+                  },
+                  options: {
+                    legend: {display: false},
+                    title: {display: true, text: $('#comment').val()},
+                    scales: {
+                      yAxes: [{
+                        ticks: {
+                          beginAtZero: true,
+                        }
+                      }]
+                    }
+                  }   
+                  });   
            },"json");
        }   
       $('#comment').val("");
