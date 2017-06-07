@@ -326,13 +326,10 @@ $(document).ready(function(){
 
       else if(funcNum==6){
          funcNum = 0;
+         var goldChart;
+         goldChart+=1;
 
-          var goldChart;
-          
-          goldChart+=1;
-          
           $.get("./goldprice.njs",$("#comment").val(),
-          
           function(data){     
             $('.dialogbox').append(
               "<div class=\"finbot\">"+
