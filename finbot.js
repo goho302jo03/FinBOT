@@ -326,14 +326,10 @@ $(document).ready(function(){
 
       else if(funcNum==6){
          funcNum = 0;
+         var goldChart;
+         goldChart+=1;
 
-          $('.dialogbox').append(
-            "<div class=\"finbot\">"+
-            "<a><img class=\"finpic\" src=\"./images/chatroom/finpic.png\"></a>"+
-            "<div class=\"frecord\"> 請稍等喔 </div>");
-          
           $.get("./goldprice.njs",$("#comment").val(),
-        
           function(data){     
             $('.dialogbox').append(
               "<div class=\"finbot\">"+
@@ -349,7 +345,6 @@ $(document).ready(function(){
             
               var goldprice = data.everydayGoldpriceUSD;
               var date = data.date;
-                  goldChart+=1;
               var ctx = document.getElementsByClassName(goldChart);
               var goldchart = new Chart(ctx,{
                   type: 'line',
@@ -368,6 +363,11 @@ $(document).ready(function(){
                   }   
                   });   
            },"json");
+
+          $('.dialogbox').append(
+            "<div class=\"finbot\">"+
+            "<a><img class=\"finpic\" src=\"./images/chatroom/finpic.png\"></a>"+
+            "<div class=\"frecord\"> 請稍等喔 </div>");
        }   
       $('#comment').val("");
     }
