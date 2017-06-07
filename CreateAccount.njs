@@ -4,8 +4,8 @@ const MongoClient = require('mongodb').MongoClient;
 const esp = require('./node_modules/easy-sinopac');
 const url = "mongodb://groupb:finbot@localhost:27017/uidd2017_groupB";
 
-var account = "Bob";
-var pass = "123456";
+var account = "Bob"; //從前端傳入
+var pass = "123456"; //從前端傳入
 var money = 100;
 
 esp.account.create(account, money);

@@ -4,9 +4,9 @@ const MongoClient = require('mongodb').MongoClient;
 const esp = require('./node_modules/easy-sinopac');
 const url = "mongodb://groupb:finbot@localhost:27017/uidd2017_groupB";
 
-var source = "Amy";
-var destination = "Bob";
-var money = 24;
+var source = "Amy";       //從前端傳入
+var destination = "Bob";  //從前端傳入
+var money = 24;           //從前端傳入
 var srcMoney;
 var desMoney;
 
