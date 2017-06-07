@@ -342,15 +342,15 @@ $(document).ready(function(){
             $('.dialogbox').append(
               "<div class=\"finbot\">"+
               "<a><img class=\"finpic\" src=\"./images/chatroom/finpic.png\"></a>"+
-             "<canvas class=\"goldChart\" width=\"10\" height=\"10\""+"</canvas>"+
+             "<canvas class=\""+goldChart+"\" width=\"10\" height=\"10\""+"</canvas>"+
               "</div>");
        
-              Chart.defaults.global.defaultFontSize = 8;
+              Chart.defaults.global.defaultFontSize = 12;
             
               var goldprice = data.everydayGoldpriceUSD;
               var date = data.date;
-
-              var ctx = document.getElementsByClassName("goldChart");
+                  goldChart+=1;
+              var ctx = document.getElementsByClassName(goldChart);
               var goldchart = new Chart(ctx,{
                   type: 'line',
                   data:{
@@ -358,18 +358,13 @@ $(document).ready(function(){
                     datasets: [{
                       label: 'goldprice',
                       data: goldprice,
+                      fill: false,
+                      borderColor: 'rgba(255,204,0,1)' 
                     }]
                   },
                   options: {
                     legend: {display: false},
                     title: {display: true, text: $('#comment').val()},
-                    scales: {
-                      yAxes: [{
-                        ticks: {
-                          beginAtZero: true,
-                        }
-                      }]
-                    }
                   }   
                   });   
            },"json");
