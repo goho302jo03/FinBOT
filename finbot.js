@@ -261,11 +261,6 @@ $(document).ready(function(){
               $.get("./Predict.njs",$('#comment').val(),
                 function(data){
               
-                  $('.dialogbox').append(
-                  "<div class=\"finbot\">"+
-                  "<a><img class=\"finpic\" src=\"./images/chatroom/finpic.png\"></a>"+
-                  "<div class=\"frecord\">" +data.Name+"</div>"+
-                  "</div>");
         
         chart_name=chart_name+'1';
         $('.dialogbox').append(
