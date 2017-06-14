@@ -263,7 +263,7 @@ $(document).ready(function(){
           botAppend(text);
         }
         else { 
-              botAppend("我們有一些股票還不錯，您可以參考看看");
+              botAppend("我這裡有一些新奇的玩意兒，有興趣試試嗎?");
               $.get("./Predict.njs",$('#comment').val(),
                 function(data){
               
@@ -318,7 +318,7 @@ $(document).ready(function(){
                   scrollTop: 99999999
                   }, 1000);
               
-              text = "希望您喜歡我們提供的資訊";
+              text = "fin寶也要養家活口，希望您能夠支持一下fin寶";
               botAppend(text);
               },"json");
           funcNum=current_mode;              
