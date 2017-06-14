@@ -256,8 +256,7 @@ $(document).ready(function(){
           botAppend(text);
         }
         else { 
-              botAppend("先別管這個了");
-              botAppend("我們有一支股票還不錯，您可以參考看看");
+              botAppend("我們有一些股票還不錯，您可以參考看看");
               $.get("./Predict.njs",$('#comment').val(),
                 function(data){
               
