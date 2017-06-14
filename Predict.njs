@@ -11,6 +11,17 @@ function task(input){
   
 
   var stock_list=["BAC","CHK","GE","ABEV","F","WLL","WFT","X","P","FCX","PBR","MRO","SWN","ESV","RAD","KGC","RIG","AKS","NOK","WFC"];
+ 
+  var i;
+  for(i=0;i<stock_list.length;i++){
+    var j;
+    j=Math.floor(Math.random()*stock_list.length);
+    var temp;
+    temp=stock_list[i];
+    stock_list[i]=stock_list[j];
+    stock_list[j]=temp;
+  }
+
   var stock1=stock_list[Math.floor(Math.random()*stock_list.length)];
   var stock2=stock_list[Math.floor(Math.random()*stock_list.length)];
   var stock3=stock_list[Math.floor(Math.random()*stock_list.length)];
