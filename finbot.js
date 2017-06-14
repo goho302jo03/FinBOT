@@ -68,6 +68,9 @@ $(document).ready(function(){
   //宣告getAnswer的function，判斷輸入，找出適合的回應
   function getAnswer() {
     var say = $('#comment').val(); // 取得使用者輸入的問句。
+    for(var i=0;i<say.length;i++){
+      if(say[i]=='<')return "請勿輸入符號";
+    }
     for (var i in qaList) { // 對於每一個 QA 
       try {
         var qa = qaList[i];
@@ -94,6 +97,10 @@ $(document).ready(function(){
   function userAppend() {
     if($('#comment').val()=="");
     else {
+      var s_w=$('#comment').val();
+      for(var i=0;i<s_w.length;i++){
+        if(s_w[i]=='<')return;
+        }
       $('.dialogbox').append(
         "<div class=\"user\">"+
           "<a><img class=\"urpic\" src=\"./images/chatroom/urpic.png\"></a>"+
