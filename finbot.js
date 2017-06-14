@@ -328,17 +328,18 @@ $(document).ready(function(){
 
       else if(funcNum==6){
          funcNum = 0;
+         setTimeout(function(){
          $('.dialogbox').append(
          "<div class=\"finbot\">"+
          "<a><img class=\"finpic\" src=\"./images/chatroom/finpic.png\"></a>"+
          "<div class=\"frecord\"> 請稍等喔 </div>");
+         },500+random(1000));
 
          function goldsearch(){   
-           goldChart = goldChart+1;
            $('.dialogbox').append(
               "<div class=\"finbot\">"+
               "<a><img class=\"finpic\" src=\"./images/chatroom/finpic.png\"></a>"+
-              "<div class=\"frecord\"> 最新的黃金價格是 US$"+ newestGoldpriceUSD+"（"+endate+"）</div>"); 
+              "<div class=\"frecord\"> 最新的黃金價格是 US$"+ newestGoldpriceUSD+"/oz（"+endate+"）</div>"); 
            $('.dialogbox').append(
               "<div class=\"finbot\">"+
               "<a><img class=\"finpic\" src=\"./images/chatroom/finpic.png\"></a>"+
@@ -356,7 +357,8 @@ $(document).ready(function(){
                       label: 'goldprice',
                       data: goldprice,
                       fill: false,
-                      borderColor: 'rgba(255,204,0,1)' 
+                      borderColor: 'rgba(255,204,0,1)',
+                      lineTension: 0,
                     }]
                   },
                   options: {
@@ -372,7 +374,9 @@ $(document).ready(function(){
         setTimeout(function () {
            goldsearch(goldChart,newestGoldpriceUSD,endate,golddate,goldprice);
            
-        }, 5000+random(500)); 
+        }, 5000+random(500));
+
+        goldChart+=1;
        }   
       $('#comment').val("");
     }
