@@ -13,7 +13,7 @@ var everydayGoldpriceUSD=[];
 var str
 
 function gochart(){
-  request("https://www.quandl.com/api/v3/datasets/LBMA/GOLD.json" , function (error, response, body) {
+  request("https://www.quandl.com/api/v3/datasets/LBMA/GOLD.json?api_key=zyM3m6s76MNzQNc5FF6u&start_date=2015-01-01" , function (error, response, body) {
     
     endate = (JSON.parse(body)).dataset.end_date;
     goldprice = (JSON.parse(body)).dataset.data;  
