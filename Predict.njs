@@ -10,7 +10,7 @@ var output;
 function task(input){
   
 
-  var stock_list=["BAC","CHK","GE","ABEV","F","WLL","WFT","X","P","FCX","PBR","MRO","SWN","ESV","RAD","KGC","RIG","AKS","NOK","WFC"];
+  var stock_list=["BAC","CHK","GE","C","F","WLL","WFT","X","P","FCX","PBR","MRO","SWN","ESV","RAD","KGC","RIG","AKS","NOK","WFC"];
  
   var i;
   for(i=0;i<stock_list.length;i++){
@@ -22,11 +22,11 @@ function task(input){
     stock_list[j]=temp;
   }
 
-  var stock1=stock_list[Math.floor(Math.random()*stock_list.length)];
-  var stock2=stock_list[Math.floor(Math.random()*stock_list.length)];
-  var stock3=stock_list[Math.floor(Math.random()*stock_list.length)];
-  var stock4=stock_list[Math.floor(Math.random()*stock_list.length)];
-  var stock5=stock_list[Math.floor(Math.random()*stock_list.length)];
+  var stock1=stock_list[0];
+  var stock2=stock_list[1];
+  var stock3=stock_list[2];
+  var stock4=stock_list[3];
+  var stock5=stock_list[4];
   
   var confident1=Math.floor(Math.random()*100+1);  
   var confident2=Math.floor(Math.random()*100+1);
