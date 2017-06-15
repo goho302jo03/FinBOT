@@ -120,8 +120,14 @@ $(document).ready(function(){
   function funcMode() {
     if($('#comment').val()=="");
     else {
-      if(funcNum==0){ 
-        botAppend(getAnswer());
+      if(funcNum==0){
+        var talk=random(10);
+        if(talk>0){
+            botAppend(<a>"http://news.ltn.com.tw/list/business"</a>);
+        }
+        else{
+            botAppend(getAnswer());
+        }
       }
       else if(funcNum==1){ 
         if($('#comment').val()=="999"){
