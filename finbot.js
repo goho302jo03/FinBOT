@@ -121,14 +121,8 @@ $(document).ready(function(){
     if($('#comment').val()=="");
     else {
       if(funcNum==0){
-        var talk=random(10);
-        if(talk>0){
-            botAppend(<a>"http://news.ltn.com.tw/list/business"</a>);
-        }
-        else{
             botAppend(getAnswer());
         }
-      }
       else if(funcNum==1){ 
         if($('#comment').val()=="999"){
           funcNum=0;
@@ -335,17 +329,11 @@ $(document).ready(function(){
       else if(funcNum==6){
          funcNum = 0;
          setTimeout(function(){
-         $('.dialogbox').append(
-         "<div class=\"finbot\">"+
-         "<a><img class=\"finpic\" src=\"./images/chatroom/finpic.png\"></a>"+
-         "<div class=\"frecord\"> 請稍等喔 </div>");
+            botAppend("請稍候喔～");
          },500+random(1000));
 
          function goldsearch(){   
-           $('.dialogbox').append(
-              "<div class=\"finbot\">"+
-              "<a><img class=\"finpic\" src=\"./images/chatroom/finpic.png\"></a>"+
-              "<div class=\"frecord\"> 最新的黃金價格是 US$"+ newestGoldpriceUSD+"/oz（"+endate+"）</div>"); 
+           botAppend("黃金價格 US$"+ newestGoldpriceUSD+"/oz（"+endate+")"); 
            $('.dialogbox').append(
               "<div class=\"finbot\">"+
               "<a><img class=\"finpic\" src=\"./images/chatroom/finpic.png\"></a>"+
@@ -392,7 +380,20 @@ $(document).ready(function(){
   //按下送出時需呼叫append
   $('#send').click(function() {
     userAppend();
-    funcMode();
+    if (funcNum!=0){
+      funcMode();
+    }
+    else{
+      var talk = random(10);
+      alert('talk='+talk)
+      if (talk == 3){
+        var newspaper = "來些<a href=\"http://m.ltn.com.tw/section/business\">財經新聞</a>吧";
+        botAppend(newspaper);
+      }
+      else if (talk >=5){
+        funcMode();
+      }
+    }
   });
 
   //按下enter鍵時需呼叫append
@@ -400,9 +401,22 @@ $(document).ready(function(){
     var key = e.which;
     if(key == 13) {
       userAppend();
-      funcMode();
-    }
-  });
+      if (funcNum!=0){
+        funcMode();
+      }
+      else{
+        var talk = random(10);
+        alert('talk='+talk)
+        if (talk == 3){
+          var newspaper = "我覺得你需要來些<a href=\"http://m.ltn.com.tw/section/business\" target=_blank>財經新聞</a>";
+          botAppend(newspaper);
+        }
+        else if (talk >=5){
+          funcMode();
+        }
+      }
+     }   
+    });
 
   //按下左下功能鍵後需要toggle
   $('#fun').click(function(){
