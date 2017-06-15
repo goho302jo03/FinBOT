@@ -115,14 +115,39 @@ $(document).ready(function(){
     
     }
   }
+  
+  //宣告查黃金價格還畫圖的function
+  function goldsearch(){   
+    botAppend("黃金價格 US$"+ newestGoldpriceUSD+"/oz（"+endate+")"); 
+    $('.dialogbox').append(
+      "<div class=\"finbot\">"+
+      "<a><img class=\"finpic\" src=\"./images/chatroom/finpic.png\"></a>"+
+      "<canvas class=\""+goldChart+"\" width=\"10\" height=\"10\""+"</canvas>"+"</div>");
+       
+      Chart.defaults.global.defaultFontSize = 15;
+            
+      var ctx = document.getElementsByClassName(goldChart);
+      var goldchart = new Chart(ctx,{
+      type: 'line',
+      data:{
+      labels: golddate,
+      datasets: [{label: 'goldprice',data: goldprice,fill: false,
+                  borderColor: 'rgba(255,204,0,1)',lineTension: 0,
+                }]
+      },
+      options: {legend: {display: false},
+                title: {display: true, text: $('#comment').val()},
+      }   
+      });
+  }
 
   //判斷是哪種模式
   function funcMode() {
     if($('#comment').val()=="");
     else {
-      if(funcNum==0){ 
-        botAppend(getAnswer());
-      }
+      if(funcNum==0){
+            botAppend(getAnswer());
+        }
       else if(funcNum==1){ 
         if($('#comment').val()=="999"){
           funcNum=0;
@@ -329,55 +354,19 @@ $(document).ready(function(){
       else if(funcNum==6){
          funcNum = 0;
          setTimeout(function(){
-         $('.dialogbox').append(
-         "<div class=\"finbot\">"+
-         "<a><img class=\"finpic\" src=\"./images/chatroom/finpic.png\"></a>"+
-         "<div class=\"frecord\"> 請稍等喔 </div>");
+            botAppend("請稍候喔～");
          },500+random(1000));
 
-         function goldsearch(){   
-           $('.dialogbox').append(
-              "<div class=\"finbot\">"+
-              "<a><img class=\"finpic\" src=\"./images/chatroom/finpic.png\"></a>"+
-              "<div class=\"frecord\"> 最新的黃金價格是 US$"+ newestGoldpriceUSD+"/oz（"+endate+"）</div>"); 
-           $('.dialogbox').append(
-              "<div class=\"finbot\">"+
-              "<a><img class=\"finpic\" src=\"./images/chatroom/finpic.png\"></a>"+
-              "<canvas class=\""+goldChart+"\" width=\"10\" height=\"10\""+"</canvas>"+
-              "</div>");
-       
-              Chart.defaults.global.defaultFontSize = 12;
+        $('.dialogbox').animate({ 
+          scrollTop: 99999999
+        }, 1000);
             
-              var ctx = document.getElementsByClassName(goldChart);
-              var goldchart = new Chart(ctx,{
-                  type: 'line',
-                  data:{
-                    labels: golddate,
-                    datasets: [{
-                      label: 'goldprice',
-                      data: goldprice,
-                      fill: false,
-                      borderColor: 'rgba(255,204,0,1)',
-                      lineTension: 0,
-                    }]
-                  },
-                  options: {
-                    legend: {display: false},
-                    title: {display: true, text: $('#comment').val()},
-                  }   
-                  });
-                  
-                  $('.dialogbox').animate({ 
-                  scrollTop: 99999999
-                  }, 1000);
-            }
         setTimeout(function () {
-           goldsearch(goldChart,newestGoldpriceUSD,endate,golddate,goldprice);
-           
+           goldsearch(goldChart,newestGoldpriceUSD,endate,golddate,goldprice);           
         }, 5000+random(500));
 
         goldChart+=1;
-       }   
+      }   
       $('#comment').val("");
     }
   }
@@ -386,7 +375,19 @@ $(document).ready(function(){
   //按下送出時需呼叫append
   $('#send').click(function() {
     userAppend();
-    funcMode();
+    if (funcNum!=0){
+      funcMode();
+    }
+    else{
+      var talk = random(10);
+      if (talk < 3){
+        var newspaper = "來些<a href=\"http://m.ltn.com.tw/section/business\">財經新聞</a>吧";
+        botAppend(newspaper);
+      }
+      else if (talk >=3){
+        funcMode();
+      }
+    }
   });
 
   //按下enter鍵時需呼叫append
@@ -394,9 +395,22 @@ $(document).ready(function(){
     var key = e.which;
     if(key == 13) {
       userAppend();
-      funcMode();
-    }
-  });
+      if (funcNum!=0){
+        funcMode();
+      }
+      else{
+        var talk = random(10);
+        if (talk < 3){
+          var newspaper = "我覺得你需要來些<a href=\"http://m.ltn.com.tw/section/business\" target=_blank>財經新聞</a>";
+          botAppend(newspaper);
+        }
+        else if (talk >=3){
+          funcMode();
+        }
+      }
+     } 
+    $('#comment').val("");
+    });
 
   //按下左下功能鍵後需要toggle
   $('#fun').click(function(){
@@ -476,6 +490,5 @@ $(document).ready(function(){
   $('#menu3').click(function(){
     $('#funpicul').toggle('slow');
   });
-
 });
 
