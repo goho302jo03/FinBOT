@@ -11,7 +11,7 @@ $(document).ready(function(){
  function horizontal(){*/
   var w = window.outerWidth;
   var h = window.outerHeight;
-  alert('w= '+w+' h= '+h);
+  //alert('w= '+w+' h= '+h);
   if( h >= w * 1.2){
     $('#photo1').click(function(){
       $('h1').animate({top:"50vh"});
