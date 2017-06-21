@@ -1,6 +1,8 @@
 html{
   width: 100vw;
+  font-family: Microsoft JhengHei;
 }
+
 
 body{
   margin: 0;
@@ -186,6 +188,11 @@ body{
   height: 2.5vh;
   text-align: center;
   list-style-type: none;
+}
+
+#funpicul li a{
+  text-decoration: none;
+  color: #ffffff;
 }
 
 #comment{
